@@ -1,6 +1,6 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
+# System configuration file
+# Man page: configuration.nix(5)
+# NixOS manual: `nixos-help`
 
 { config, pkgs, ... }:
 
@@ -10,11 +10,26 @@
       ./hardware-configuration.nix
     ];
 
-  # enable nix flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  # Enable automatic garbage collection
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 1w";
+  };
+
+  nix.settings = {
+    # Enable flakes and new `nix` command
+    experimental-features = [ "nix-command" "flakes" ];
+    # Deduplicate and optimize nix store
+    auto-optimise-store = true;
+  };
 
   # Use the systemd-boot EFI boot loader
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot = {
+    enable = true;
+    # Limit the number of generations to keep
+    configurationLimit = 10;
+  };
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "mfm8s"; # Define your hostname.
@@ -73,17 +88,6 @@
     isNormalUser = true;
     description = "2639";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      firefox
-    #  thunderbird
-      htop
-      neofetch
-      wezterm
-      zellij
-      helix
-      just
-      fzf
-    ];
   };
 
   # Allow unfree packages
