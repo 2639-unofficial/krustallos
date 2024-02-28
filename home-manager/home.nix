@@ -1,8 +1,19 @@
-{ config, pkgs, ... }:
+# Home-manager configuration
+# Man page: home-configuration.nix(5)
+# Manual: `home-manager-help`
+
+{ inputs, config, pkgs, ... }:
 
 {
   home.username = "unofficial";
   home.homeDirectory = "/home/unofficial";
+
+  imports = [
+    ./helix.nix
+  ];
+
+  # So home-manager can set the session variables
+  programs.bash.enable = true;
 
   # User packages
   home.packages = with pkgs; [
@@ -12,10 +23,12 @@
     pfetch
     wezterm
     zellij
-    helix
     just
     fzf
   ];
+
+  # Open the HTML manual with `home-manager-help`
+  manual.html.enable = true;
 
   # Nicely reload system units when switching configs
   systemd.user.startServices = "sd-switch";

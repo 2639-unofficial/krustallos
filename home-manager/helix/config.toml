@@ -1,0 +1,103 @@
+theme = "ayu_dark"
+
+[editor]
+line-number = "relative"
+bufferline = "multiple"
+# rulers = [80]
+true-color = true
+color-modes = true
+# cursorline = true
+idle-timeout = 50
+completion-trigger-len = 1
+
+[editor.file-picker]
+hidden = false
+
+[editor.lsp]
+display-messages = true
+# display-inlay-hints = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.indent-guides]
+render = true
+character = "┆"
+
+[editor.statusline]
+# left = ["mode", "spacer", "spinner", "spacer", "file-type-icon", "file-name", "file-modification-indicator"]
+left = ["mode", "spinner", "spacer", "version-control", "file-name", "file-modification-indicator"]
+# center = ["diagnostics","workspace-diagnostics"]
+center = ["diagnostics"]
+right = [ "selections", "position", "position-percentage", "file-encoding", "file-line-ending", "file-type"]
+
+[keys.normal]
+esc = ["collapse_selection", "keep_primary_selection"]
+ret = ["move_line_down", "goto_first_nonwhitespace"]
+a = ["move_char_right", "insert_mode"]
+
+C-r = ":reload"
+C-s = ":write"
+C-S-s = ":write-all"
+C-A-s = ":write-quit-all"
+C-q = ":quit"
+
+# C-j = "save_selection"
+"'" = "save_selection"
+S-tab = "jump_backward"
+
+"C-c" = ["collapse_selection", "keep_primary_selection"]
+"C-/" = "toggle_comments"    # does not work
+
+C-u = ["half_page_up", "goto_window_center"]
+C-d = ["half_page_down", "goto_window_center"]
+
+# non-ideal at the top of a document when half_page_up is nullipotent and align_view_center bloacks the top of the view
+# C-u = ["half_page_up", "align_view_center"]
+# C-d = ["half_page_down", "align_view_center"]
+
+[keys.normal.space]
+z = ":write-quit"
+x = ":buffer-close"
+X = ":buffer-close-others"
+"." = "file_picker_in_current_buffer_directory"
+c = 'toggle_comments'
+
+[keys.normal.space.l]
+c = [":write!", ":run-shell-command zellij run --floating -- just check"]
+b = [":write!", ":run-shell-command zellij run --floating -- just build"]
+r = [":write!", ":run-shell-command zellij run --floating -- just run"]
+t = [":write!", ":run-shell-command zellij run --floating -- just test"]
+k = [":write!", ":run-shell-command zellij run --floating -- just --choose"]
+
+[keys.normal.space.t]
+s = ":toggle-option soft-wrap.enable"
+i = ":toggle-option file-picker.ignore"
+h = ":toggle-option lsp.display-inlay-hints"
+
+[keys.normal.space.w]
+c = ":config-open"
+r = ":config-reload"
+
+# duplicate from [keys.normal.space.w] due to lack of window mode remapping
+[keys.normal.C-w]
+c = ":config-open"
+r = ":config-reload"
+
+[keys.insert]
+# esc = ["collapse_selection", "normal_mode"]
+j = { j = ["collapse_selection", "normal_mode"] }
+# "C-c" = ["collapse_selection", "normal_mode"]
+
+[keys.select]
+# esc = ["collapse_selection", "keep_primary_selection", "normal_mode"]
+"C-c" = ["collapse_selection", "keep_primary_selection"]
+
+[keys.select.space]
+z = ":quit"
+x = ":buffer-close"
+X = ":buffer-close-others"
+"." = "file_picker_in_current_buffer_directory"
+"c" = 'toggle_comments'
