@@ -1,0 +1,2 @@
+# krustallos
+NixOS configuration
