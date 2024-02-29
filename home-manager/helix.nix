@@ -7,6 +7,10 @@ in
     enable = true;
     package = helix;
     defaultEditor = true;
+    extraPackages = with pkgs; [
+      # Nix
+      nil
+    ];
   };
 
   xdg.configFile.helix.source = ./helix;
