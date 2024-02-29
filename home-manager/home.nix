@@ -9,11 +9,10 @@
   home.homeDirectory = "/home/unofficial";
 
   imports = [
+    ./bash.nix
     ./helix.nix
+    ./zellij.nix
   ];
-
-  # So home-manager can set the session variables
-  programs.bash.enable = true;
 
   # User packages
   home.packages = with pkgs; [
@@ -22,7 +21,6 @@
     neofetch
     pfetch
     wezterm
-    zellij
     just
     fzf
   ];
