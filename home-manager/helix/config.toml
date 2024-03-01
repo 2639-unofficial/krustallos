@@ -51,14 +51,6 @@ S-tab = "jump_backward"
 "C-c" = ["collapse_selection", "keep_primary_selection"]
 "C-/" = "toggle_comments"    # does not work
 
-C-u = ["half_page_up", "goto_window_center"]
-C-d = ["half_page_down", "goto_window_center"]
-
-# non-ideal at the top of a document when half_page_up is nullipotent
-# and align_view_center bloacks the top of the view
-# C-u = ["half_page_up", "align_view_center"]
-# C-d = ["half_page_down", "align_view_center"]
-
 [keys.normal.space]
 z = ":write-quit"
 x = ":buffer-close"
