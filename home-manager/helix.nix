@@ -1,5 +1,8 @@
 { inputs, pkgs, ... }:
 let
+  # Skips the input but impurifies the build (use --impure to rebuild)
+  # helix = (builtins.getFlake "github:helix-editor/helix/master").packages.${pkgs.system}.default;
+
   helix = inputs.helix.packages.${pkgs.system}.default;
 in
 {
