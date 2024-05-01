@@ -10,6 +10,7 @@
 
   imports = [
     ./bash.nix
+    ./direnv.nix
     ./helix.nix
     ./zellij.nix
   ];
