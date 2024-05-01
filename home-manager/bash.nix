@@ -8,7 +8,7 @@
       # Basic
       l = "ls -Alh --color=auto";
       ".." = "cd ..";
-      "..." = "cd ...";
+      "..." = "cd ../..";
 
       # Fast scroll back buffer clearing, like `clear`
       rst = "tput reset";
