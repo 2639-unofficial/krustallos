@@ -2,7 +2,7 @@
 # Man page: home-configuration.nix(5)
 # Manual: `home-manager-help`
 
-{ inputs, config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   home.username = "unofficial";
@@ -18,12 +18,17 @@
   home.packages = with pkgs; [
     firefox
     btop
-    neofetch
+    dust
     pfetch
     wezterm
     just
     fzf
+    ripgrep
+    fd
   ];
+
+  # locate nixpkgs binary
+  programs.nix-index.enable = true;
 
   # Open the HTML manual with `home-manager-help`
   manual.html.enable = true;
