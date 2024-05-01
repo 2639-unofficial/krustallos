@@ -3,19 +3,17 @@ theme = "ayu_dark"
 [editor]
 line-number = "relative"
 bufferline = "multiple"
-# rulers = [80]
 true-color = true
 color-modes = true
-# cursorline = true
 idle-timeout = 50
 completion-trigger-len = 1
+# popup-border = "all"
 
 [editor.file-picker]
 hidden = false
 
 [editor.lsp]
 display-messages = true
-# display-inlay-hints = true
 
 [editor.cursor-shape]
 insert = "bar"
@@ -54,7 +52,8 @@ S-tab = "jump_backward"
 [keys.normal.space]
 z = ":write-quit"
 x = ":buffer-close"
-X = ":buffer-close-others"
+X = ":buffer-close!"
+A-x = ":buffer-close-others"
 "." = "file_picker_in_current_buffer_directory"
 
 [keys.normal.space.l]
@@ -64,10 +63,19 @@ r = [":write!", ":run-shell-command zellij run --floating -- just run"]
 t = [":write!", ":run-shell-command zellij run --floating -- just test"]
 k = [":write!", ":run-shell-command zellij run --floating -- just --choose"]
 
+d = [":hsplit-new", ":lang diff", ":insert-output git diff", "flip_selections"]
+
 [keys.normal.space.t]
 s = ":toggle-option soft-wrap.enable"
 i = ":toggle-option file-picker.ignore"
 h = ":toggle-option lsp.display-inlay-hints"
+
+[keys.normal.space.t.l]
+
+c = ":toggle-option cursorline"
+d = ":set-option rulers []"
+1 = ":set-option rulers [80]"
+2 = ":set-option rulers [80,120]"
 
 [keys.normal.space.w]
 c = ":config-open"
@@ -90,7 +98,8 @@ j = { j = ["collapse_selection", "normal_mode"] }
 [keys.select.space]
 z = ":write-quit"
 x = ":buffer-close"
-X = ":buffer-close-others"
+X = ":buffer-close!"
+A-x = ":buffer-close-others"
 "." = "file_picker_in_current_buffer_directory"
 "c" = "toggle_comments"
 "A-c" = "toggle_block_comments"
