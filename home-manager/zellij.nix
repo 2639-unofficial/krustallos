@@ -1,8 +1,13 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   programs.zellij = {
     enable = true;
-    enableBashIntegration = true;
   };
+
+  home.shellAliases = {
+    zj = "zellij";
+  };
+
+  xdg.configFile.zellij.source = ./zellij;
 }
