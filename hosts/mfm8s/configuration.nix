@@ -10,20 +10,6 @@
       ./hardware-configuration.nix
     ];
 
-  # Enable automatic garbage collection
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 1w";
-  };
-
-  nix.settings = {
-    # Enable flakes and new `nix` command
-    experimental-features = [ "nix-command" "flakes" ];
-    # Deduplicate and optimize nix store
-    auto-optimise-store = true;
-  };
-
   # Use the systemd-boot EFI boot loader
   boot.loader.systemd-boot = {
     enable = true;
