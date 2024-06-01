@@ -11,6 +11,7 @@
   imports = [
     ./bash.nix
     ./direnv.nix
+    ./distrobox.nix
     ./helix.nix
     ./zellij.nix
   ];

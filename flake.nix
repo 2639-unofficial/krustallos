@@ -21,6 +21,7 @@
       modules = [
         ./hosts/mfm8s/configuration.nix
       ] ++ [
+        ./hosts/common/container.nix
         ./hosts/common/nix.nix
       ];
     };
