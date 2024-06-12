@@ -9,6 +9,7 @@
   home.homeDirectory = "/home/unofficial";
 
   imports = [
+    ./cursor.nix
     ./bash.nix
     ./direnv.nix
     ./distrobox.nix
