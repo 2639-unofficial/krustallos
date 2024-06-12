@@ -12,17 +12,23 @@
     # Helix editor
     helix.url = "github:helix-editor/helix/master";
     helix.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Niri compositor
+    niri.url = "github:sodiboo/niri-flake/main";
+    niri.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs @ { self, nixpkgs, home-manager, ... }: {
     # NixOS configuration entrypoint
     nixosConfigurations.mfm8s = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+      specialArgs = { inherit inputs; };
       modules = [
         ./hosts/mfm8s/configuration.nix
       ] ++ [
         ./hosts/common/container.nix
         ./hosts/common/nix.nix
+        ./hosts/common/niri.nix
       ];
     };
 

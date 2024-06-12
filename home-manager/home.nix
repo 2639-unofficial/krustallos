@@ -10,6 +10,8 @@
 
   imports = [
     ./cursor.nix
+    ./niri.nix
+  ] ++ [
     ./bash.nix
     ./direnv.nix
     ./distrobox.nix
