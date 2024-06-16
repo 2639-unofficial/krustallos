@@ -26,9 +26,5 @@
   # See https://github.com/NixOS/nixpkgs/issues/207339
   gtk = {
     enable = true;
-    theme = {
-      package = pkgs.gnome.gnome-themes-extra;
-      name = "Adwaita-dark";
-    };
   };
 }
