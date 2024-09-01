@@ -24,16 +24,26 @@
   # User packages
   home.packages = with pkgs; [
     firefox
+    pavucontrol    # Sound control
+    sioyek         # PDF reader
+  ] ++ [
     btop
-    dust
+    dust           # Disk usage
     pfetch
+    tealdeer       # Short man pages
+    tokei          # Line count
+    ouch           # (De)Compressor
     just
     ripgrep
+    systemctl-tui
     fd
+    wl-clipboard
   ];
 
   # Ensure proper shell integration
   programs.fzf.enable = true;
+  programs.eza.enable = true;
+  programs.eza.git = true;
 
   # Locate nixpkgs binary
   programs.nix-index.enable = true;
