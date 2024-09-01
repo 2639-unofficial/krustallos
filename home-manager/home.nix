@@ -19,6 +19,8 @@
     ./distrobox.nix
     ./helix.nix
     ./zellij.nix
+  ] ++ [
+    ./fun.nix
   ];
 
   # User packages
