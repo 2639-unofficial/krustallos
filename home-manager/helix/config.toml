@@ -32,6 +32,11 @@ center = ["diagnostics"]
 right = [ "selections", "position", "position-percentage", "file-encoding", "file-line-ending", "file-type"]
 
 [keys.normal]
+# Rationale: we have `miw` for selecting a word, and W, B, E for navigating at comparable speed
+w = 'move_next_sub_word_start'
+b = 'move_prev_sub_word_start'
+e = 'move_next_sub_word_end'
+
 esc = ["collapse_selection", "keep_primary_selection"]
 ret = ["move_line_down", "goto_first_nonwhitespace"]
 a = ["move_char_right", "insert_mode"]
@@ -92,6 +97,10 @@ j = { j = ["collapse_selection", "normal_mode"] }
 # "C-c" = ["collapse_selection", "normal_mode"]
 
 [keys.select]
+w = 'move_next_sub_word_start'
+b = 'move_prev_sub_word_start'
+e = 'move_next_sub_word_end'
+
 # esc = ["collapse_selection", "keep_primary_selection", "normal_mode"]
 "C-c" = ["collapse_selection", "keep_primary_selection"]
 

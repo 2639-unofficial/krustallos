@@ -13,7 +13,14 @@ in
     extraPackages = with pkgs; [
       # Nix
       nil
+      nixd
+      # HTML, CSS, JSON, ESLint
+      vscode-langservers-extracted
     ];
+  };
+
+  home.shellAliases = {
+    hxc = "hx $HOME/.config";
   };
 
   xdg.configFile.helix.source = ./helix;
