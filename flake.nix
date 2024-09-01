@@ -27,6 +27,7 @@
         ./hosts/mfm8s/configuration.nix
       ] ++ [
         ./hosts/common/container.nix
+        ./hosts/common/nix-ld.nix
         ./hosts/common/nix.nix
         ./hosts/common/niri.nix
       ];
