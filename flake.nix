@@ -1,5 +1,5 @@
 {
-  description = "A NixOS flake configuration";
+  description = "NixOS configuration with flakes";
 
   inputs = {
     # Nixpkgs
