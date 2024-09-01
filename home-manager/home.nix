@@ -28,12 +28,14 @@
     dust
     pfetch
     just
-    fzf
     ripgrep
     fd
   ];
 
-  # locate nixpkgs binary
+  # Ensure proper shell integration
+  programs.fzf.enable = true;
+
+  # Locate nixpkgs binary
   programs.nix-index.enable = true;
 
   # Open the HTML manual with `home-manager-help`
