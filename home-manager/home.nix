@@ -12,6 +12,7 @@
     ./cursor.nix
     ./fonts.nix
     ./niri.nix
+    ./wezterm.nix
   ] ++ [
     ./bash.nix
     ./direnv.nix
@@ -26,7 +27,6 @@
     btop
     dust
     pfetch
-    wezterm
     just
     fzf
     ripgrep
