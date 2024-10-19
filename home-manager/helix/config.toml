@@ -97,9 +97,9 @@ j = { j = ["collapse_selection", "normal_mode"] }
 # "C-c" = ["collapse_selection", "normal_mode"]
 
 [keys.select]
-w = 'move_next_sub_word_start'
-b = 'move_prev_sub_word_start'
-e = 'move_next_sub_word_end'
+w = 'extend_next_sub_word_start'
+b = 'extend_prev_sub_word_start'
+e = 'extend_next_sub_word_end'
 
 # esc = ["collapse_selection", "keep_primary_selection", "normal_mode"]
 "C-c" = ["collapse_selection", "keep_primary_selection"]
