@@ -1,5 +1,5 @@
 {
-  description = "NixOS configuration with flakes";
+  description = "krustallos: systems formed by nix and flakes";
 
   inputs = {
     # Nixpkgs
