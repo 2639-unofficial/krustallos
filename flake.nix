@@ -16,6 +16,9 @@
     # Niri compositor
     niri.url = "github:sodiboo/niri-flake/main";
     niri.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Statusbar plugin for Zellij
+    zjstatus.url = "github:dj95/zjstatus/main";
   };
 
   outputs = inputs @ { self, nixpkgs, home-manager, ... }: {
