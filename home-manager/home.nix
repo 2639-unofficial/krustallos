@@ -18,6 +18,7 @@
     ./direnv.nix
     ./distrobox.nix
     ./helix.nix
+    ./tealdeer.nix
     ./zellij.nix
   ] ++ [
     ./fun.nix
