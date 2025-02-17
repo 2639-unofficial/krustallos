@@ -2,7 +2,7 @@
 # Man page: home-configuration.nix(5)
 # Manual: `home-manager-help`
 
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   home.username = "unofficial";
@@ -46,6 +46,12 @@
   programs.fzf.enable = true;
   programs.eza.enable = true;
   programs.eza.git = true;
+
+  # `nix run n#hello` with ease!
+  # QUESTION: System registry or user registry, where to place it?
+  nix.registry = {
+    n.flake = inputs.nixpkgs;
+  };
 
   # Locate nixpkgs binary
   programs.nix-index.enable = true;
