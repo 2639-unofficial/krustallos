@@ -26,20 +26,29 @@
   # User packages
   home.packages = with pkgs; [
     firefox
+    ghostty
+    # losslesscut-bin # FFmpeg gui
+    # mixxc          # Volume mixer widget
+    # oculante       # image viewer
     pavucontrol    # Sound control
     sioyek         # PDF reader
+    zathura        # PDF reader
   ] ++ [
     btop
+    comma          # Auto nix run
     dust           # Disk usage
-    pfetch
-    tealdeer       # Short man pages
+    freeze         # Screenshot for code
+    nitch          # Pretty fetch in Nim
+    pfetch-rs
     tokei          # Line count
     ouch           # (De)Compressor
     just
+    ripdrag        # Floating drag and drop
     ripgrep
     systemctl-tui
     fd
-    wl-clipboard
+    # hyperfine      # Benchmarking
+    wl-clipboard-rs
   ];
 
   # Ensure proper shell integration
