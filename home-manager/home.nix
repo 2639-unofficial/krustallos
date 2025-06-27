@@ -19,6 +19,7 @@
     ./distrobox.nix
     ./helix.nix
     ./tealdeer.nix
+    ./yazi.nix
     ./zellij.nix
   ] ++ [
     ./fun.nix
