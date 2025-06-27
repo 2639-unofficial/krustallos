@@ -1,4 +1,5 @@
-theme = "ayu_dark"
+# theme = "ayu_dark"
+theme = "rose_pine_murk"
 
 [editor]
 line-number = "relative"
@@ -6,8 +7,11 @@ bufferline = "multiple"
 true-color = true
 color-modes = true
 idle-timeout = 50
+completion-timeout = 5
 completion-trigger-len = 1
 # popup-border = "all"
+jump-label-alphabet = "asdf;lkjweroiughtycvbmn"
+end-of-line-diagnostics = "hint"
 
 [editor.file-picker]
 hidden = false
@@ -25,11 +29,17 @@ render = true
 character = "┆"
 
 [editor.statusline]
-# left = ["mode", "spacer", "spinner", "spacer", "file-type-icon", "file-name", "file-modification-indicator"]
-left = ["mode", "spinner", "spacer", "version-control", "file-name", "file-modification-indicator"]
-# center = ["diagnostics","workspace-diagnostics"]
-center = ["diagnostics"]
-right = [ "selections", "position", "position-percentage", "file-encoding", "file-line-ending", "file-type"]
+left = [ "mode", "spinner", "spacer", "version-control", "file-name", "read-only-indicator", "file-modification-indicator" ]
+center = [ "diagnostics", "register" ]
+right = [ "selections", "primary-selection-length", "separator", "position", "position-percentage", "spacer", "separator", "file-encoding", "file-line-ending", "file-type" ]
+separator = "┆"
+
+[editor.inline-diagnostics]
+cursor-line = "warning"
+
+[editor.whitespace.render]
+tab = "all"
+nbsp = "all"
 
 [keys.normal]
 # Rationale: we have `miw` for selecting a word, and W, B, E for navigating at comparable speed
@@ -38,24 +48,19 @@ b = 'move_prev_sub_word_start'
 e = 'move_next_sub_word_end'
 
 esc = ["collapse_selection", "keep_primary_selection"]
-ret = ["move_line_down", "goto_first_nonwhitespace"]
+ret = "goto_word"
 a = ["move_char_right", "insert_mode"]
 
 C-r = ":reload"
-C-s = ":write"
-C-S-s = ":write-all"
-C-A-s = ":write-quit-all"
-C-q = ":quit"
 
 # C-j = "save_selection"
 "'" = "save_selection"
 S-tab = "jump_backward"
 
-"C-c" = ["collapse_selection", "keep_primary_selection"]
-"C-/" = "toggle_comments"    # does not work
+"up" = ["move_visual_line_up", "scroll_up"]
+"down" = ["move_visual_line_down", "scroll_down"]
 
 [keys.normal.space]
-z = ":write-quit"
 x = ":buffer-close"
 X = ":buffer-close!"
 A-x = ":buffer-close-others"
@@ -76,9 +81,8 @@ i = ":toggle-option file-picker.ignore"
 h = ":toggle-option lsp.display-inlay-hints"
 
 [keys.normal.space.t.l]
-
 c = ":toggle-option cursorline"
-d = ":set-option rulers []"
+0 = ":set-option rulers []"
 1 = ":set-option rulers [80]"
 2 = ":set-option rulers [80,120]"
 
@@ -86,15 +90,10 @@ d = ":set-option rulers []"
 c = ":config-open"
 r = ":config-reload"
 
-# duplicate from [keys.normal.space.w] due to lack of window mode remapping
+# Duplicate from [keys.normal.space.w] due to the lack of window mode remapping
 [keys.normal.C-w]
 c = ":config-open"
 r = ":config-reload"
-
-[keys.insert]
-# esc = ["collapse_selection", "normal_mode"]
-j = { j = ["collapse_selection", "normal_mode"] }
-# "C-c" = ["collapse_selection", "normal_mode"]
 
 [keys.select]
 w = 'extend_next_sub_word_start'
@@ -102,13 +101,10 @@ b = 'extend_prev_sub_word_start'
 e = 'extend_next_sub_word_end'
 
 # esc = ["collapse_selection", "keep_primary_selection", "normal_mode"]
-"C-c" = ["collapse_selection", "keep_primary_selection"]
+# "C-c" = ["collapse_selection", "keep_primary_selection"]
 
 [keys.select.space]
-z = ":write-quit"
 x = ":buffer-close"
 X = ":buffer-close!"
 A-x = ":buffer-close-others"
 "." = "file_picker_in_current_buffer_directory"
-"c" = "toggle_comments"
-"A-c" = "toggle_block_comments"

@@ -45,7 +45,6 @@
     pfetch-rs
     tokei          # Line count
     ouch           # (De)Compressor
-    just
     ripdrag        # Floating drag and drop
     ripgrep
     systemctl-tui

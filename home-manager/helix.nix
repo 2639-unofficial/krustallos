@@ -1,9 +1,10 @@
-{ inputs, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 let
   # Skips the input but impurifies the build (use --impure to rebuild)
   # helix = (builtins.getFlake "github:helix-editor/helix/master").packages.${pkgs.system}.default;
 
   helix = inputs.helix.packages.${pkgs.system}.default;
+  config-path = "${config.home.homeDirectory}/krustallos/home-manager/helix";
 in
 {
   programs.helix = {
@@ -16,12 +17,20 @@ in
       nixd
       # HTML, CSS, JSON, ESLint
       vscode-langservers-extracted
+      # Command runner for unified scripting interface
+      just
     ];
   };
 
   home.shellAliases = {
     hxc = "hx $HOME/.config";
+    jst = "just";
   };
 
-  xdg.configFile.helix.source = ./helix;
+  # xdg.configFile.helix = {
+  #   source = ./helix;
+  #   recursive = true;
+  # };
+
+  xdg.configFile."helix".source = config.lib.file.mkOutOfStoreSymlink config-path;
 }

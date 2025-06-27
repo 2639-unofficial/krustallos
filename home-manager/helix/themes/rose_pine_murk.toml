@@ -1,0 +1,6 @@
+inherits = "rose_pine"
+
+"ui.selection.primary" = { modifiers = ["reversed"] }
+
+[palette]
+base = "#000000"
