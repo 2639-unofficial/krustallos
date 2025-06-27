@@ -17,6 +17,7 @@
     ./bash.nix
     ./direnv.nix
     ./distrobox.nix
+    ./git.nix
     ./helix.nix
     ./tealdeer.nix
     ./yazi.nix
