@@ -17,10 +17,13 @@ in
       nixd
       # HTML, CSS, JSON, ESLint
       vscode-langservers-extracted
-      # Command runner for unified scripting interface
-      just
     ];
   };
+
+  home.packages = with pkgs; [
+    # Command runner for unified scripting interface
+    just
+  ];
 
   home.shellAliases = {
     hxc = "hx $HOME/.config";
