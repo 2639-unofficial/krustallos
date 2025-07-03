@@ -1,2 +1,7 @@
-/result
+# Nix related
 .direnv
+/result
+/result-doc
+
+# Temp files
+/x
