@@ -1,0 +1,47 @@
+* {
+  /* font-family: 'Noto Sans Mono', 'Font Awesome 6 Free', 'Font Awesome 6 Brands', monospace; */
+  font-family: 'JetBrains Mono', 'Noto Sans CJK TC';
+  font-size: 14px;
+  padding: 0 0px;
+}
+
+window#waybar {
+  /* background-color: rgba(12, 14, 15, 0.95); */
+  background-color: rgba(0, 0, 0, 0.99);
+  color: #ffffff;
+  /* border-left: 3px solid rgba(200, 228, 250, 0.5); */
+  border-radius: 5px;
+}
+
+#custom-nix-logo {
+  background-image: url('./nix-snowflake-24x24.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 12px 0px 4px 0px;
+}
+
+#workspaces {
+  margin: 0px 6px;
+}
+
+#workspaces button:hover {
+  border: 1px solid #333639;
+  background: #333639;
+  box-shadow: inherit;
+  text-shadow: inherit;
+}
+
+#workspaces button.current_output {
+  color: #ffffff;
+}
+
+#workspaces button.active {
+  color: #f0cabf;
+  /* color: #bbbbbb; */
+  /* color: #d7c0a0; */
+  /* color: #ada9a6; */
+}
+
+#pulseaudio {
+  margin: 0px 0px 12px 0px;
+}

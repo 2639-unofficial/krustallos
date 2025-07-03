@@ -1,0 +1,83 @@
+{
+  "layer": "top",
+  "position": "left",
+  "margin-left": 16,
+  "margin-right": 0,
+  // "position": "right",
+  // "margin-left": 0,
+  // "margin-right": 16,
+  "width": 40,
+  "margin-top": 16,
+  "margin-bottom": 16,
+  "modules-left": [
+    "custom/nix-logo",
+    "niri/workspaces"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "pulseaudio"
+  ],
+  "custom/nix-logo": {
+    "format": " ",
+    "tooltip": false
+  },
+  "niri/workspaces": {
+    "format": "{icon}",
+    // NOTE: Workspace 1 is always empty due to the `empty-workspace-above-first` setting in niri,
+    // so we refer to it as the "zeroth" workspace
+    "format-icons": {
+      // "1": "〇",
+      // "2": "一",
+      // "3": "二",
+      // "4": "三",
+      // "5": "四",
+      // "6": "五",
+      // "7": "六",
+      // "8": "七",
+      // "9": "八",
+      // "10": "九",
+      // "11": "十"
+      "1": "零",
+      "2": "壹",
+      "3": "貳",
+      "4": "參",
+      "5": "肆",
+      "6": "伍",
+      "7": "陸",
+      "8": "柒",
+      "9": "捌",
+      "10": "玖",
+      "11": "拾"
+    }
+  },
+  "clock": {
+    // "format": "{:%H\n%M\n╶╴\n<span color='#bbbbbb'>%m\n%d</span>}",
+    // "format": "{:%H\n%M\n\n<span color='#bbbbbb'>%b\n%d\n%a</span>}",
+    "format": "{:%H\n%M\n\n<span color='#f0cabf'>%m\n%d</span>}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#f0cabf'><b>{}</b></span>",
+        "days": "<span color='#e0def4'><b>{}</b></span>",
+        "weeks": "<span color='#c4a7e7'><b>W{}</b></span>",
+        "weekdays": "<span color='#9ccfd8'><b>{}</b></span>",
+        "today": "<span background='#f0cabf' color='#000000'><b>{}</b></span>"
+      }
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  },
+  "pulseaudio": {
+    "scroll-step": 5,
+    "on-click": "pavucontrol"
+  }
+}
