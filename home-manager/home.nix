@@ -37,7 +37,7 @@
     # mixxc          # Volume mixer widget
     # oculante       # Image viewer
     pavucontrol    # Sound control
-    pwvucontrol    # Pipewire volumn control
+    pwvucontrol    # Pipewire volume control
     readest        # Ebook reader
     sioyek         # PDF reader
     # sniffnet       # Network monitor
