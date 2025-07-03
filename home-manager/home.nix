@@ -26,6 +26,8 @@
     ./fun.nix
   ];
 
+  nixpkgs.config.allowUnfree = true;
+
   # User packages
   home.packages = with pkgs; [
     firefox
