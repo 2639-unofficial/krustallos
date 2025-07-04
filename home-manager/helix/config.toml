@@ -77,7 +77,7 @@ d = [":hsplit-new", ":lang diff", ":insert-output git diff", "flip_selections"]
 
 [keys.normal.space.t]
 s = ":toggle-option soft-wrap.enable"
-i = ":toggle-option file-picker.ignore"
+i = [":toggle-option file-picker.ignore", ":toggle-option file-picker.git-ignore"]
 h = ":toggle-option lsp.display-inlay-hints"
 
 [keys.normal.space.t.l]
