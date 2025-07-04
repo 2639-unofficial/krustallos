@@ -53,9 +53,11 @@
     }
   },
   "clock": {
-    // "format": "{:%H\n%M\n╶╴\n<span color='#bbbbbb'>%m\n%d</span>}",
-    // "format": "{:%H\n%M\n\n<span color='#bbbbbb'>%b\n%d\n%a</span>}",
-    "format": "{:%H\n%M\n\n<span color='#f0cabf'>%m\n%d</span>}",
+    "justify": "center",
+    // "format": "{:%m\n%d\n╶╴\n<span color='#bbbbbb'>%H\n%M</span>}",
+    // "format": "{:%b\n%d\n%a\n\n<span color='#bbbbbb'>%H\n%M</span>}",
+    // "format": "{:%m\n%d\n\n<span color='#f0cabf'>%H\n%M</span>}",
+    "format": "{:%b\n%d\n\n<span color='#f0cabf'>%H\n%M</span>}",
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "calendar": {
       "mode": "year",
@@ -77,6 +79,25 @@
     }
   },
   "pulseaudio": {
+    "justify": "center",
+    "format": "<span size='14pt'>{icon}</span>\n{volume}%",
+    "format-bluetooth": "<span size='10pt'>{icon}</span>\n{volume}%",
+    "format-muted": "",
+    "format-icons": {
+      "alsa_output.pci-0000_00_1f.3.analog-stereo": "",
+      "alsa_output.pci-0000_00_1f.3.analog-stereo-muted": "",
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "phone-muted": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        "",
+        ""
+      ]
+    },
     "scroll-step": 5,
     "on-click": "pavucontrol"
   }
