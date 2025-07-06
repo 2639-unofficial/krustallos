@@ -10,6 +10,7 @@
     ./hardware-configuration.nix
 
     ../common/container.nix
+    # ../common/dns.nix
     ../common/nix-ld.nix
     ../common/nix.nix
     ../common/niri.nix
