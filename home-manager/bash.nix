@@ -12,6 +12,7 @@ in
       "c-" = "cd -";
       ".." = "cd ..";
       "..." = "cd ../..";
+      "chx" = "chmod u+x";
 
       # Fast scroll back buffer clearing, like `clear`
       rst = "tput reset";
