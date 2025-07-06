@@ -32,32 +32,34 @@
   home.packages = with pkgs; [
     firefox
     ghostty
-    # koreader       # Ebook reader
-    # losslesscut-bin # FFmpeg gui
-    # mixxc          # Volume mixer widget
-    # oculante       # Image viewer
-    pavucontrol    # Sound control
-    pwvucontrol    # Pipewire volume control
-    readest        # Ebook reader
-    sioyek         # PDF reader
-    # sniffnet       # Network monitor
-    zathura        # PDF reader
+    # koreader           # Ebook reader
+    # losslesscut-bin    # FFmpeg gui
+    # mixxc              # Volume mixer widget
+    # oculante           # Image viewer
+    pavucontrol        # Sound control
+    pwvucontrol        # Pipewire volume control
+    readest            # Ebook reader
+    # rnote              # Handwritten notes
+    sioyek             # PDF reader
+    # sniffnet           # Network monitor
+    zathura            # PDF reader
   ] ++ [
     btop
-    bluetui        # Bluetooth manager
-    charm-freeze   # Screenshot for code
-    comma          # Auto nix run
-    dust           # Disk usage
+    bluetui            # Bluetooth manager
+    charm-freeze       # Screenshot for code
+    comma              # Auto nix run
+    dust               # Disk usage
     fd
-    hexyl          # Hex viewser
-    # hyperfine      # Benchmarking
-    nitch          # Pretty fetch in Nim
-    # numbat         # Featureful Calculator
+    # gibo               # gitignore boilerplates
+    hexyl              # Hex viewser
+    # hyperfine          # Benchmarking
+    nitch              # Pretty fetch in Nim
+    # numbat             # Featureful Calculator
     pfetch-rs
-    tokei          # Line count
-    ouch           # (De)Compressor
-    # rdap           # Registration data
-    ripdrag        # Floating drag and drop
+    tokei              # Line count
+    ouch               # (De)Compressor
+    # rdap               # Registration data
+    ripdrag            # Floating drag and drop
     ripgrep
     systemctl-tui
     wl-clipboard-rs
