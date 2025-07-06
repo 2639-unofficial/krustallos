@@ -23,23 +23,20 @@
 
   outputs = inputs @ { self, nixpkgs, home-manager, ... }: {
     # NixOS configuration entrypoint
-    nixosConfigurations.mfm8s = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs; };
-      modules = [
-        ./hosts/mfm8s/configuration.nix
-      ] ++ [
-        ./hosts/common/container.nix
-        ./hosts/common/nix-ld.nix
-        ./hosts/common/nix.nix
-        ./hosts/common/niri.nix
-      ];
+    nixosConfigurations = {
+      mfm8s = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
+        modules = [ ./hosts/mfm8s/configuration.nix ];
+      };
     };
 
     # Home manager configuration entrypoint
-    homeConfigurations."unofficial@mfm8s" = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.x86_64-linux;
-      extraSpecialArgs = { inherit inputs; };
-      modules = [ ./home-manager/home.nix ];
+    homeConfigurations = {
+      "unofficial@mfm8s" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = { inherit inputs; };
+        modules = [ ./home-manager/home.nix ];
+      };
     };
   };
 

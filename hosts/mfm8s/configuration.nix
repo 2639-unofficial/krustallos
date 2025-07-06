@@ -5,10 +5,15 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+
+    ../common/container.nix
+    ../common/nix-ld.nix
+    ../common/nix.nix
+    ../common/niri.nix
+  ];
 
   # Use the systemd-boot EFI boot loader
   boot.loader.systemd-boot = {
