@@ -1,3 +1,4 @@
+// NOTE: The <span></span> markups are in [pango markup](https://docs.gtk.org/Pango/pango_markup.html)
 {
   "layer": "top",
   "position": "left",
@@ -54,11 +55,11 @@
   },
   "clock": {
     "justify": "center",
-    // "format": "{:%m\n%d\n╶╴\n<span color='#bbbbbb'>%H\n%M</span>}",
-    // "format": "{:%b\n%d\n%a\n\n<span color='#bbbbbb'>%H\n%M</span>}",
+    // "format": "{:%m\n%d\n—\n<span color='#bbbbbb'>%H\n%M</span>}",
     // "format": "{:%m\n%d\n\n<span color='#f0cabf'>%H\n%M</span>}",
-    "format": "{:%b\n%d\n\n<span color='#f0cabf'>%H\n%M</span>}",
-    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    // "format": "{:%b\n%d\n\n<span color='#f0cabf'>%H\n%M</span>}",
+    "format": "{:%d\n<small>%a</small>\n\n<span color='#f0cabf'>%H\n%M</span>}",
+    "tooltip-format": "<small>{calendar}</small>",
     "calendar": {
       "mode": "year",
       "mode-mon-col": 3,
@@ -80,9 +81,9 @@
   },
   "pulseaudio": {
     "justify": "center",
-    "format": "<span size='14pt'>{icon}</span>\n{volume}%",
-    "format-bluetooth": "<span size='10pt'>{icon}</span>\n{volume}%",
-    "format-muted": "",
+    "format": "<span size='80%'>{icon}</span>\n{volume}%",
+    "format-bluetooth": "<span size='80%'>{icon}</span>\n{volume}%",
+    "format-muted": "<span size='80%'></span>\n—",
     "format-icons": {
       "alsa_output.pci-0000_00_1f.3.analog-stereo": "",
       "alsa_output.pci-0000_00_1f.3.analog-stereo-muted": "",
