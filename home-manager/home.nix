@@ -2,7 +2,7 @@
 # Man page: home-configuration.nix(5)
 # Manual: `home-manager-help`
 
-{ inputs, pkgs, ... }:
+{ config, inputs, pkgs, ... }:
 
 {
   home.username = "unofficial";
@@ -69,6 +69,14 @@
   programs.fzf.enable = true;
   programs.eza.enable = true;
   programs.eza.git = true;
+
+  # Nix CLI helper
+  # NOTE: nh only cleanups the user profile when GC is enabled via home-manager
+  #       So it's better to utilize the nixos options for cleaning
+  programs.nh = {
+    enable = true;
+    flake = "${config.home.homeDirectory}/krustallos";
+  };
 
   # `nix run n#hello` with ease!
   # QUESTION: System registry or user registry, where to place it?
