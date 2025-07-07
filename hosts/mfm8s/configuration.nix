@@ -11,6 +11,7 @@
 
     ../common/container.nix
     # ../common/dns.nix
+    ../common/input-method.nix
     ../common/nix-ld.nix
     ../common/nix.nix
     ../common/niri.nix
