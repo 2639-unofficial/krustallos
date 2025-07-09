@@ -1,10 +1,13 @@
 { pkgs, ... }:
-
+let
+  apple-color-emoji = pkgs.callPackage ../pkgs/apple-color-emoji.nix { };
+in
 {
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
     # andika
+    apple-color-emoji
     atkinson-hyperlegible
     atkinson-hyperlegible-next
     # atkinson-hyperlegible-mono
