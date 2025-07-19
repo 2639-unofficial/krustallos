@@ -9,12 +9,9 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
 
-    ../common/container.nix
-    # ../common/dns.nix
-    ../common/input-method.nix
-    ../common/nix-ld.nix
-    ../common/nix.nix
-    ../common/niri.nix
+    # Include common utilities
+    # NOTE: Implicitly import ../common/default.nix
+    ../common
   ];
 
   # Use the systemd-boot EFI boot loader
