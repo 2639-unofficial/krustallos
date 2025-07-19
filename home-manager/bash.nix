@@ -21,6 +21,10 @@ in
       # path = "echo $PATH | tr ':' '\n'";
       # path = "echo $PATH | sed 's/:/\n/g'";
       path = "echo $PATH | awk --assign=RS=':' '{print}'";
+
+      # Query the closure size of a nix package
+      # Usage: `size nixpkgs#hello`
+      size = "nix path-info --recursive --size --closure-size --human-readable";
     };
 
     initExtra = /* bash */ ''
