@@ -1,5 +1,7 @@
 { inputs, config, pkgs, ... }:
 let
+  inherit (config.lib.file) mkOutOfStoreSymlink;
+
   config-path = {
     niri   = "${config.home.homeDirectory}/krustallos/home-manager/niri";
     waybar = "${config.home.homeDirectory}/krustallos/home-manager/waybar";
@@ -16,7 +18,7 @@ in
     package = pkgs.niri;
   };
 
-  xdg.configFile."niri".source = config.lib.file.mkOutOfStoreSymlink config-path.niri;
+  xdg.configFile."niri".source = mkOutOfStoreSymlink config-path.niri;
 
   home.packages = with pkgs; [
     swww        # Wallpaper
@@ -26,12 +28,12 @@ in
   ];
 
   programs.waybar.enable = true;
-  xdg.configFile."waybar/style.css".source = config.lib.file.mkOutOfStoreSymlink "${config-path.waybar}/style.css";
-  xdg.configFile."waybar/config.jsonc".source = config.lib.file.mkOutOfStoreSymlink "${config-path.waybar}/config.jsonc";
+  xdg.configFile."waybar/style.css".source = mkOutOfStoreSymlink "${config-path.waybar}/style.css";
+  xdg.configFile."waybar/config.jsonc".source = mkOutOfStoreSymlink "${config-path.waybar}/config.jsonc";
   xdg.configFile."waybar/nix-snowflake-24x24.png".source = "${pkgs.nixos-icons}/share/icons/hicolor/24x24/apps/nix-snowflake.png";
 
   programs.fuzzel.enable = true;
-  xdg.configFile."fuzzel".source = config.lib.file.mkOutOfStoreSymlink config-path.fuzzel;
+  xdg.configFile."fuzzel".source = mkOutOfStoreSymlink config-path.fuzzel;
 
   programs.tofi.enable = true;
 
