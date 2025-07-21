@@ -9,6 +9,10 @@
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    # Disko
+    disko.url = "github:nix-community/disko/latest";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
+
     # Helix editor
     helix.url = "github:helix-editor/helix/master";
     helix.inputs.nixpkgs.follows = "nixpkgs";
@@ -28,6 +32,10 @@
         specialArgs = { inherit inputs; };
         modules = [ ./hosts/mfm8s/configuration.nix ];
       };
+      vbs14 = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
+        modules = [ ./hosts/vbs14/configuration.nix ];
+      };
     };
 
     # Home manager configuration entrypoint
@@ -36,6 +44,11 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = { inherit inputs; };
         modules = [ ./hosts/mfm8s/home.nix ];
+      };
+      "endi@vbs14" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = { inherit inputs; };
+        modules = [ ./hosts/vbs14/home.nix ];
       };
     };
   };
