@@ -5,6 +5,15 @@ in
 {
   fonts.fontconfig.enable = true;
 
+  # fonts.fontconfig.defaultFonts = {
+  #   serif = [ "Libertinus Serif" ];
+  #   sansSerif = [ "Atkinson Hyperlegible Next" ];
+  #   monospace = [ "JetBrains Mono" ];
+  #   # NOTE: For firefox, the default emoji font still need to be set via the
+  #   # `font.name-list.emoji` preference in about:config
+  #   emoji = [ "Apple Color Emoji" ];
+  # };
+
   home.packages = with pkgs; [
     # andika
     apple-color-emoji
