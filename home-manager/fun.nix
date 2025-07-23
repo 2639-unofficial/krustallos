@@ -1,6 +1,17 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 let
-  # From nixpkgs/nixos/modules/services/x11/desktop-managers/gnome.nix
+  terminal = with pkgs; [
+    asciiquarium
+    cbonsai
+    # figlet             # Generate cool ASCII fonts
+    # genact             # Nonsense activity generator
+    # hollywood
+    neo
+    pipes-rs
+    # rust-stakeholder   # Nonsense activity generator
+  ];
+
+  # From nixpkgs/nixos/modules/services/desktop-managers/gnome.nix
   gnome-games = with pkgs; [
     aisleriot
     atomix
@@ -23,19 +34,28 @@ let
     swell-foop
     tali
   ];
+
+  rougelikes = with pkgs; [
+    # brogue-ce       # Brogue: Community Edition (minimalist rougelike, Rouge successor)
+    shattered-pixel-dungeon
+    # tome4           # Tales of Maj'eyal (rougelike turnbase dungeon explore)
+  ];
+
+  miscellaneous = with pkgs; [
+    # activate-linux
+    # cool-retro-term
+    keypunch           # Typing practice
+    # osu-lazer          # Rythm game
+    # sgt-puzzles        # Simon Tatham's puzzle collection
+
+    # More interesting apps at https://circle.gnome.org/
+  ];
 in
 {
-  home.packages = with pkgs; [
-    # activate-linux
-    asciiquarium
-    cbonsai
-    # cool-retro-term
-    genact
-    hollywood
-    neo
-    pipes-rs
-  ] ++ [
-    # Simon Tatham's puzzle collection
-    # sgt-puzzles
-  ] ++ gnome-games;
+  home.packages = lib.lists.flatten [
+    terminal
+    gnome-games
+    rougelikes
+    miscellaneous
+  ];
 }
