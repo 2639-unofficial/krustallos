@@ -12,6 +12,7 @@ completion-trigger-len = 1
 # popup-border = "all"
 jump-label-alphabet = "asdf;lkjweroiughtycvbmn"
 end-of-line-diagnostics = "hint"
+rainbow-brackets = true
 
 [editor.file-picker]
 hidden = false

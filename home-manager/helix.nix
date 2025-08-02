@@ -26,7 +26,7 @@ in
   ];
 
   home.shellAliases = {
-    hxc = "hx $HOME/.config";
+    hxc = "hx ${config.xdg.configHome}";
     jst = "just";
   };
 
