@@ -10,6 +10,7 @@
     ./fonts.nix
     ./niri.nix
     ./wezterm.nix
+    ./wlogout.nix
   ] ++ [
     ./bash.nix
     ./direnv.nix

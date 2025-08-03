@@ -55,6 +55,5 @@ in
   # services.swaync.enable = true;
   # services.dunst.enable = true;
 
-  programs.wlogout.enable = true;
   programs.swaylock.enable = true;
 }
