@@ -2,26 +2,40 @@
 # Man page: home-configuration.nix(5)
 # Manual: `home-manager-help`
 
-{ config, inputs, pkgs, ... }:
+{ config, inputs, lib, pkgs, ... }:
 
 {
-  imports = [
-    ./cursor.nix
-    ./fonts.nix
-    ./niri.nix
-    ./wezterm.nix
-    ./wlogout.nix
-  ] ++ [
-    ./bash.nix
-    ./direnv.nix
-    ./distrobox.nix
-    ./git.nix
-    ./helix.nix
-    ./tealdeer.nix
-    ./yazi.nix
-    ./zellij.nix
-  ] ++ [
-    ./fun.nix
+  imports = let
+    cli = [
+      ./bash.nix
+      ./direnv.nix
+      ./distrobox.nix
+      ./git.nix
+      ./helix.nix
+      ./tealdeer.nix
+      ./yazi.nix
+      ./zellij.nix
+    ];
+
+    gui = [
+      ./cursor.nix
+      ./fonts.nix
+      ./wezterm.nix
+    ];
+
+    niri = [
+      ./niri.nix
+      ./wlogout.nix
+    ];
+
+    misc = [
+      ./fun.nix
+    ];
+  in lib.lists.flatten [
+    cli
+    gui
+    niri
+    misc
   ];
 
   nixpkgs.config.allowUnfree = true;
