@@ -25,6 +25,7 @@
 
     niri = [
       ./niri.nix
+      ./wl-kbptr.nix
       ./wlogout.nix
     ];
 

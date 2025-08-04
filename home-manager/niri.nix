@@ -24,6 +24,7 @@ in
     swww        # Wallpaper
     libnotify   # Notify-send
     hyprpicker  # Color picker
+    wlrctl      # Wayland cli util
     xwayland-satellite
   ];
 

@@ -402,6 +402,15 @@ binds {
     Mod+N { spawn "swaync-client" "-t" "-sw"; }
     Mod+D { spawn "tofi-drun"; }
 
+    // Mod+A       { spawn "sh" "-c" "wl-kbptr -o modes=tile,bisect"; }
+    Mod+A       { spawn "sh" "-c" "wl-kbptr -o modes=tile,split"; }
+    // Mod+Ctrl+A  { spawn "sh" "-c" "wl-kbptr -o modes=floating && wlrctl pointer click left"; }
+    // Mod+Shift+A { spawn "sh" "-c" "wl-kbptr -o modes=floating && wlrctl pointer click middle"; }
+    // Mod+Alt+A   { spawn "sh" "-c" "wl-kbptr -o modes=floating && wlrctl pointer click right"; }
+    Mod+Ctrl+A  { spawn "sh" "-c" "wl-kbptr -o modes=floating,click -o mode_click.button=left"; }
+    Mod+Shift+A { spawn "sh" "-c" "wl-kbptr -o modes=floating,click -o mode_click.button=middle"; }
+    Mod+Alt+A   { spawn "sh" "-c" "wl-kbptr -o modes=floating,click -o mode_click.button=right"; }
+
     // Reload waybar
     Mod+Z { spawn "pkill" "-SIGUSR2" "waybar"; }
     // Toggle the visibility of waybar
