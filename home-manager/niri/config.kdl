@@ -157,7 +157,7 @@ layout {
         // off
 
         // How many logical pixels the ring extends out from the windows.
-        width 3
+        width 2
 
         // Colors can be set in a variety of ways:
         // - CSS named colors: "red"
@@ -272,13 +272,18 @@ layout {
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "waybar"
 spawn-at-startup "swww-daemon"
+// TODO: try swayidle (REF: niri from arch wiki)
+// spawn-at-startup "swayidle" "-w" "timeout" "601" "niri msg action power-off-monitors" "timeout" "600" "swaylock -f" "before-sleep" "swaylock -f"
+
+// Bluetooth media controls
+// spawn-at-startup "mpris-proxy"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
 // Additionally, clients will be informed that they are tiled, removing some client-side rounded corners.
 // This option will also fix border/focus ring drawing behind some semitransparent windows.
 // After enabling or disabling this, you need to restart the apps for this to take effect.
-// prefer-no-csd
+prefer-no-csd
 
 // You can change the path where screenshots are saved.
 // A ~ at the front will be expanded to the home directory.
@@ -290,6 +295,7 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 spawn-at-startup "xwayland-satellite"
 environment {
     DISPLAY ":0"
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
 }
 
 cursor {
@@ -328,6 +334,11 @@ window-rule {
     draw-border-with-background false
 }
 
+window-rule {
+    match app-id=r#"com\.mitchellh\.ghostty"#
+    draw-border-with-background false
+}
+
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
     // This app-id regular expression will work for both:
@@ -344,10 +355,11 @@ window-rule {
     match app-id=r#"firefox$"# title="^About Mozilla Firefox$"
     match app-id=r#"firefox$"# title="^Incoming Connection$"
 
-    match app-id=r#"org\.gnome\.NautilusPreviewer"#
-    match app-id=r#"org\.gnome\.Loupe"#
     match app-id=r#"org\.gnome\.Calculator"#
+    match app-id=r#"org\.gnome\.Characters"#
     match app-id=r#"org\.gnome\.clocks"#
+    match app-id=r#"org\.gnome\.Loupe"#
+    match app-id=r#"org\.gnome\.NautilusPreviewer"#
 
     match app-id=r#"pavucontrol$"#
     match app-id=r#"pwvucontrol$"#
@@ -400,7 +412,8 @@ binds {
     Mod+Alt+B { spawn "firefox" "--private-window"; }
 
     Mod+N { spawn "swaync-client" "-t" "-sw"; }
-    Mod+D { spawn "tofi-drun"; }
+
+    Mod+Alt+Space { spawn "tofi-drun"; }
 
     // Mod+A       { spawn "sh" "-c" "wl-kbptr -o modes=tile,bisect"; }
     Mod+A       { spawn "sh" "-c" "wl-kbptr -o modes=tile,split"; }
