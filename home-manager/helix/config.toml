@@ -67,6 +67,9 @@ X = ":buffer-close!"
 A-x = ":buffer-close-others"
 "." = "file_picker_in_current_buffer_directory"
 
+# Copy the github url of the current line to the system clipboard
+B = ":sh wl-copy %sh{gh browse --no-browser %{buffer_name}:%{cursor_line}}"
+
 [keys.normal.space.l]
 c = [":write!", ":run-shell-command zellij run --floating -- just check"]
 b = [":write!", ":run-shell-command zellij run --floating -- just build"]
