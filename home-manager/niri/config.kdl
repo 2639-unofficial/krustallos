@@ -3,11 +3,11 @@
 // This config is in the KDL format: https://kdl.dev
 // "/-" comments out the following node.
 // Check the wiki for a full description of the configuration:
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Introduction
+// https://yalter.github.io/niri/Configuration:-Introduction
 
 // Input device configuration.
 // Find the full list of options on the wiki:
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Input
+// https://yalter.github.io/niri/Configuration:-Input
 input {
     keyboard {
         xkb {
@@ -17,6 +17,10 @@ input {
             // For example:
             // layout "us,ru"
             // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
+
+            // If this section is empty, niri will fetch xkb settings
+            // from org.freedesktop.locale1. You can control these using
+            // localectl set-x11-keymap.
         }
 
         // Enable numlock on startup, omitting this setting disables it.
@@ -25,6 +29,7 @@ input {
 
     // Next sections include libinput settings.
     // Omitting settings disables them, or leaves them at their default values.
+    // All commented-out settings here are examples, not defaults.
     touchpad {
         // off
         tap
@@ -54,6 +59,7 @@ input {
         // accel-profile "flat"
         // scroll-method "on-button-down"
         // scroll-button 273
+        // scroll-button-lock
         middle-emulation
     }
 
@@ -69,7 +75,7 @@ input {
 // by running `niri msg outputs` while inside a niri instance.
 // The built-in laptop monitor is usually called "eDP-1".
 // Find more information on the wiki:
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
+// https://yalter.github.io/niri/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
 /-output "eDP-1" {
     // Uncomment this line to disable this output.
@@ -104,7 +110,7 @@ input {
 
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
+// https://yalter.github.io/niri/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
     gaps 16
@@ -176,6 +182,9 @@ layout {
         // active-color "#c4a7e7" // purple (rose pine)
 
         // Color of the ring on inactive monitors.
+        //
+        // The focus ring only draws around the active window, so the only place
+        // where you can see its inactive-color is on other monitors.
         inactive-color "#505050"
 
         // You can also use gradients. They take precedence over solid colors.
@@ -185,7 +194,7 @@ layout {
         // You can use any CSS linear-gradient tool on the web to set these up.
         // Changing the color space is also supported, check the wiki for more info.
         //
-        // active-gradient from="#80c8ff" to="#bbddff" angle=45
+        // active-gradient from="#80c8ff" to="#c7ff7f" angle=45
 
         // #ba465e (darker pink) on the bottom, #f38ba8 (lighter pink) on top
         // active-gradient from="#ba465e" to="#f38ba8" angle=0 relative-to="workspace-view"
@@ -210,7 +219,11 @@ layout {
         // Color of the border around windows that request your attention.
         urgent-color "#9b0000"
 
-        // active-gradient from="#ffbb66" to="#ffc880" angle=45 relative-to="workspace-view"
+        // Gradients can use a few different interpolation color spaces.
+        // For example, this is a pastel rainbow gradient via in="oklch longer hue".
+        //
+        // active-gradient from="#e5989b" to="#ffb4a2" angle=45 relative-to="workspace-view" in="oklch longer hue"
+
         // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
     }
 
@@ -226,13 +239,13 @@ layout {
         // radius. It has to assume that windows have square corners, leading to
         // shadow artifacts inside the CSD rounded corners. This setting fixes
         // those artifacts.
-        // 
+        //
         // However, instead you may want to set prefer-no-csd and/or
         // geometry-corner-radius. Then, niri will know the corner radius and
         // draw the shadow correctly, without having to draw it behind the
         // window. These will also remove client-side shadows if the window
         // draws any.
-        // 
+        //
         // draw-behind-window true
 
         // You can change how shadows look. The values below are in logical
@@ -271,12 +284,21 @@ layout {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "waybar"
+
+// To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
+// spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
+
 spawn-at-startup "swww-daemon"
 // TODO: try swayidle (REF: niri from arch wiki)
-// spawn-at-startup "swayidle" "-w" "timeout" "601" "niri msg action power-off-monitors" "timeout" "600" "swaylock -f" "before-sleep" "swaylock -f"
+// spawn-sh-at-startup "swayidle -w timeout 601 niri msg action power-off-monitors timeout 600 swaylock -f before-sleep swaylock -f"
 
 // Bluetooth media controls
 // spawn-at-startup "mpris-proxy"
+
+hotkey-overlay {
+    // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
+    // skip-at-startup
+}
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
@@ -290,11 +312,7 @@ prefer-no-csd
 // The path is formatted with strftime(3) to give you the screenshot date and time.
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
-// For SSH X11 forwarding with xwayland-satellite
-// NOTE: Remove after https://github.com/YaLTeR/niri/pull/1728 is released
-spawn-at-startup "xwayland-satellite"
 environment {
-    DISPLAY ":0"
     ELECTRON_OZONE_PLATFORM_HINT "auto"
 }
 
@@ -310,7 +328,7 @@ cursor {
 
 // Animation settings.
 // The wiki explains how to configure individual animations:
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Animations
+// https://yalter.github.io/niri/Configuration:-Animations
 animations {
     // Uncomment to turn off all animations.
     // off
@@ -321,7 +339,7 @@ animations {
 
 // Window rules let you adjust behavior for individual windows.
 // Find more information on the wiki:
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
+// https://yalter.github.io/niri/Configuration:-Window-Rules
 
 // Work around WezTerm's initial configure bug
 // by setting an empty default-column-width.
@@ -369,7 +387,7 @@ window-rule {
 
 // Example: block out two password managers from screen capture.
 // (This example rule is commented out with a "/-" in front.)
-/-window-rule {
+window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
     match app-id=r#"^org\.gnome\.World\.Secrets$"#
 
@@ -405,51 +423,63 @@ binds {
     Mod+Space   hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
+    // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
+    // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
+    // For example, this is a standard bind to toggle the screen reader (orca).
+    // Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
+
     Mod+M hotkey-overlay-title="Open File Manager" { spawn "nautilus"; }
     Mod+S hotkey-overlay-title="Control Audio Devices" { spawn "pavucontrol"; }
 
     Mod+B     { spawn "firefox"; }
     Mod+Alt+B { spawn "firefox" "--private-window"; }
 
-    Mod+N { spawn "swaync-client" "-t" "-sw"; }
+    Mod+N { spawn-sh "swaync-client -t -sw"; }
 
     Mod+Alt+Space { spawn "tofi-drun"; }
 
-    // Mod+A       { spawn "sh" "-c" "wl-kbptr -o modes=tile,bisect"; }
-    Mod+A       { spawn "sh" "-c" "wl-kbptr -o modes=tile,split"; }
-    // Mod+Ctrl+A  { spawn "sh" "-c" "wl-kbptr -o modes=floating && wlrctl pointer click left"; }
-    // Mod+Shift+A { spawn "sh" "-c" "wl-kbptr -o modes=floating && wlrctl pointer click middle"; }
-    // Mod+Alt+A   { spawn "sh" "-c" "wl-kbptr -o modes=floating && wlrctl pointer click right"; }
-    Mod+Ctrl+A  { spawn "sh" "-c" "wl-kbptr -o modes=floating,click -o mode_click.button=left"; }
-    Mod+Shift+A { spawn "sh" "-c" "wl-kbptr -o modes=floating,click -o mode_click.button=middle"; }
-    Mod+Alt+A   { spawn "sh" "-c" "wl-kbptr -o modes=floating,click -o mode_click.button=right"; }
+    // Mod+A       { spawn-sh "wl-kbptr -o modes=tile,bisect"; }
+    Mod+A       { spawn-sh "wl-kbptr -o modes=tile,split"; }
+    // Mod+Ctrl+A  { spawn-sh "wl-kbptr -o modes=floating && wlrctl pointer click left"; }
+    // Mod+Shift+A { spawn-sh "wl-kbptr -o modes=floating && wlrctl pointer click middle"; }
+    // Mod+Alt+A   { spawn-sh "wl-kbptr -o modes=floating && wlrctl pointer click right"; }
+    Mod+Ctrl+A  { spawn-sh "wl-kbptr -o modes=floating,click -o mode_click.button=left"; }
+    Mod+Shift+A { spawn-sh "wl-kbptr -o modes=floating,click -o mode_click.button=middle"; }
+    Mod+Alt+A   { spawn-sh "wl-kbptr -o modes=floating,click -o mode_click.button=right"; }
 
     // Reload waybar
-    Mod+Z { spawn "pkill" "-SIGUSR2" "waybar"; }
+    Mod+Z { spawn-sh "pkill -SIGUSR2 waybar"; }
     // Toggle the visibility of waybar
-    Mod+Shift+Z { spawn "pkill" "-SIGUSR1" "waybar"; }
+    Mod+Shift+Z { spawn-sh "pkill -SIGUSR1 waybar"; }
 
-    Super+Alt+Z { spawn "wlogout" "--buttons-per-row" "6"; }
+    Super+Alt+Z { spawn-sh "wlogout --buttons-per-row 6"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.
     // Mod+T { spawn "bash" "-c" "notify-send hello && exec alacritty"; }
-    Mod+Alt+X { spawn "bash" "-c" "hyprpicker | xargs notify-send"; }
+    Mod+Alt+X { spawn-sh "hyprpicker -a | xargs notify-send"; }
 
     // TODO: Set window rule with `is-window-cast-target=true`
     Super+Alt+O hotkey-overlay-title="Set Dynamic Cast Output" { set-dynamic-cast-monitor; }
     Super+Alt+W hotkey-overlay-title="Set Dynamic Cast Window" { set-dynamic-cast-window; }
-    Super+Alt+P hotkey-overlay-title="Pick Dynamic Cast Window" { spawn "sh" "-c" "niri msg action set-dynamic-cast-window --id=\"$(niri msg --json pick-window | jq .id)\""; }
+    Super+Alt+P hotkey-overlay-title="Pick Dynamic Cast Window" { spawn-sh "niri msg action set-dynamic-cast-window --id=\"$(niri msg --json pick-window | jq .id)\""; }
     Super+Alt+C hotkey-overlay-title="Clear Dynamic Cast Target" { clear-dynamic-cast-target; }
 
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.
-    Shift+XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.01+"; }
-    Shift+XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.01-"; }
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05+"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05-"; }
-    XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+    // Using spawn-sh allows to pass multiple arguments together with the command.
+    Shift+XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.01+"; }
+    Shift+XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.01-"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
+    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+
+    // Example brightness key mappings for brightnessctl.
+    // You can use regular spawn with multiple arguments too (to avoid going through "sh"),
+    // but you need to manually put each argument in separate "" quotes.
+    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
 
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,
@@ -561,8 +591,8 @@ binds {
     // These binds are also affected by touchpad's natural-scroll, so these
     // example binds are "inverted", since we have natural-scroll enabled for
     // touchpads by default.
-    // Mod+TouchpadScrollDown { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02+"; }
-    // Mod+TouchpadScrollUp   { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02-"; }
+    // Mod+TouchpadScrollDown { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+"; }
+    // Mod+TouchpadScrollUp   { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-"; }
 
     // You can refer to workspaces by index. However, keep in mind that
     // niri is a dynamic workspace system, so these commands are kind of
@@ -611,6 +641,8 @@ binds {
     Mod+Period { expel-window-from-column; }
 
     Mod+R { switch-preset-column-width; }
+    // Cycling through the presets in reverse order is also possible.
+    // Mod+R { switch-preset-column-width-back; }
     Mod+Shift+R { switch-preset-window-height; }
     Mod+Ctrl+R { reset-window-height; }
     Mod+F { maximize-column; }
@@ -646,9 +678,9 @@ binds {
     Mod+Shift+Ctrl+Equal { set-window-height "+1"; }
 
     // Sizing 16:9 floating windows
-    Mod+0       { spawn "sh" "-c" "niri msg action set-window-width 960;  niri msg action set-window-height 540"; }
-    Mod+Shift+0 { spawn "sh" "-c" "niri msg action set-column-width 1280; niri msg action set-window-height 720"; }
-    Mod+Ctrl+0  { spawn "sh" "-c" "niri msg action set-column-width 1920; niri msg action set-window-height 1080"; }
+    Mod+0       { spawn-sh "niri msg action set-window-width 960;  niri msg action set-window-height 540"; }
+    Mod+Shift+0 { spawn-sh "niri msg action set-column-width 1280; niri msg action set-window-height 720"; }
+    Mod+Ctrl+0  { spawn-sh "niri msg action set-column-width 1920; niri msg action set-window-height 1080"; }
 
     // Move the focused window between the floating and the tiling layout.
     Mod+V       { toggle-window-floating; }
