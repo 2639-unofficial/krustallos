@@ -1,4 +1,5 @@
 layout {
+    // TODO: Setup zjstatus with tooltip https://github.com/dj95/zjstatus/issues/179
     default_tab_template {
         children
         pane size=1 borderless=true {
