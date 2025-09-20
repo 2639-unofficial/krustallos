@@ -59,6 +59,7 @@
 
   # INFO: Nix stores the options to $HOME/.local/share/nix/trusted-settings.json
   # when user agrees to "permanently trust" the settings
+  # Also see https://kokada.dev/blog/quick-bits-where-does-nix-store-flakes-trusted-settings/
   # nixConfig = {
   #   # NOTE: These options do not work for two reasons:
   #   # 1) Without `accept-flake-config` being enabled, only a small portion of
