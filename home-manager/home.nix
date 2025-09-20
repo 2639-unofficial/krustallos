@@ -93,7 +93,10 @@
   };
 
   # `nix run n#hello` with ease!
-  # QUESTION: System registry or user registry, where to place it?
+  # NOTE: Setting an entry in the user registry, instead of the system registry,
+  # makes it OS-agnostic, and is thus more desirable
+  # TODO: Try out https://github.com/numtide/nixpkgs-unfree to run unfree
+  # packages without `NIXPKGS_ALLOW_UNFREE=1 nix run --impure ...`
   nix.registry = {
     n.flake = inputs.nixpkgs;
   };
