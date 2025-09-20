@@ -1,0 +1,22 @@
+font: monospace
+background: "#000000bf"
+color: "#f0cabf"
+border: "#f0cabf"
+separator: " ➜ "
+border_width: 2
+corner_r: 7
+padding: 16
+
+menu:
+  - key: "1"
+    desc: 960 x 540
+    cmd: niri msg action set-column-width 960; niri msg action set-window-height 540
+  - key: "2"
+    desc: 1280 x 720
+    cmd: niri msg action set-column-width 1280; niri msg action set-window-height 720
+  - key: "3"
+    desc: 1920 x 1080
+    cmd: niri msg action set-column-width 1920; niri msg action set-window-height 1080
+  - key: "r"
+    desc: reset
+    cmd: niri msg action switch-preset-window-width; niri msg action reset-window-height

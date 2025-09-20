@@ -27,6 +27,7 @@
       ./niri.nix
       ./wl-kbptr.nix
       ./wlogout.nix
+      ./wlr-which-key.nix
     ];
 
     misc = [

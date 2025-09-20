@@ -429,7 +429,7 @@ binds {
     // Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
 
     Mod+M hotkey-overlay-title="Open File Manager" { spawn "nautilus"; }
-    Mod+S hotkey-overlay-title="Control Audio Devices" { spawn "pavucontrol"; }
+    Mod+A hotkey-overlay-title="Control Audio Devices" { spawn "pavucontrol"; }
 
     Mod+B     { spawn "firefox"; }
     Mod+Alt+B { spawn "firefox" "--private-window"; }
@@ -438,14 +438,15 @@ binds {
 
     Mod+Alt+Space { spawn "tofi-drun"; }
 
-    // Mod+A       { spawn-sh "wl-kbptr -o modes=tile,bisect"; }
-    Mod+A       { spawn-sh "wl-kbptr -o modes=tile,split"; }
-    // Mod+Ctrl+A  { spawn-sh "wl-kbptr -o modes=floating && wlrctl pointer click left"; }
-    // Mod+Shift+A { spawn-sh "wl-kbptr -o modes=floating && wlrctl pointer click middle"; }
-    // Mod+Alt+A   { spawn-sh "wl-kbptr -o modes=floating && wlrctl pointer click right"; }
-    Mod+Ctrl+A  { spawn-sh "wl-kbptr -o modes=floating,click -o mode_click.button=left"; }
-    Mod+Shift+A { spawn-sh "wl-kbptr -o modes=floating,click -o mode_click.button=middle"; }
-    Mod+Alt+A   { spawn-sh "wl-kbptr -o modes=floating,click -o mode_click.button=right"; }
+    // TODO: Reconfigure with wlr-which-key
+    // // Mod+A       { spawn-sh "wl-kbptr -o modes=tile,bisect"; }
+    // Mod+A       { spawn-sh "wl-kbptr -o modes=tile,split"; }
+    // // Mod+Ctrl+A  { spawn-sh "wl-kbptr -o modes=floating && wlrctl pointer click left"; }
+    // // Mod+Shift+A { spawn-sh "wl-kbptr -o modes=floating && wlrctl pointer click middle"; }
+    // // Mod+Alt+A   { spawn-sh "wl-kbptr -o modes=floating && wlrctl pointer click right"; }
+    // Mod+Ctrl+A  { spawn-sh "wl-kbptr -o modes=floating,click -o mode_click.button=left"; }
+    // Mod+Shift+A { spawn-sh "wl-kbptr -o modes=floating,click -o mode_click.button=middle"; }
+    // Mod+Alt+A   { spawn-sh "wl-kbptr -o modes=floating,click -o mode_click.button=right"; }
 
     // Reload waybar
     Mod+Z { spawn-sh "pkill -SIGUSR2 waybar"; }
@@ -677,10 +678,8 @@ binds {
     Mod+Shift+Ctrl+Minus { set-window-height "-1"; }
     Mod+Shift+Ctrl+Equal { set-window-height "+1"; }
 
-    // Sizing 16:9 floating windows
-    Mod+0       { spawn-sh "niri msg action set-window-width 960;  niri msg action set-window-height 540"; }
-    Mod+Shift+0 { spawn-sh "niri msg action set-column-width 1280; niri msg action set-window-height 720"; }
-    Mod+Ctrl+0  { spawn-sh "niri msg action set-column-width 1920; niri msg action set-window-height 1080"; }
+    // Sizing windows to exact dimensions in logical pixels
+    Mod+S { spawn-sh "wlr-which-key set-window-size"; }
 
     // Move the focused window between the floating and the tiling layout.
     Mod+V       { toggle-window-floating; }
