@@ -8,5 +8,6 @@
     ./niri.nix
     ./nix.nix
     ./nix-ld.nix
+    ./zswap.nix
   ];
 }
