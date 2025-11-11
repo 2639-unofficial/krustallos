@@ -104,6 +104,11 @@
     settings.program_options.file_manager = "${pkgs.xdg-utils}/bin/xdg-open";
   };
 
+  programs.man = {
+    enable = true;
+    generateCaches = true;
+  };
+
   # Nix CLI helper
   # NOTE: nh only cleanups the user profile when GC is enabled via home-manager
   #       So it's better to utilize the nixos options for cleaning
