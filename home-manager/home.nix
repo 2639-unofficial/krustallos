@@ -5,6 +5,11 @@
 { config, inputs, lib, pkgs, ... }:
 
 {
+  # Extra arguments that get passed to imported nix modules
+  _module.args = {
+    inherit (pkgs.stdenv.hostPlatform) system;
+  };
+
   imports = let
     cli = [
       ./bash.nix

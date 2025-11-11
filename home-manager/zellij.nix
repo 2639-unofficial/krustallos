@@ -1,6 +1,6 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, system, ... }:
 let
-  zjstatus_wasm = "${inputs.zjstatus.packages.${pkgs.system}.default}/bin/zjstatus.wasm";
+  zjstatus_wasm = "${inputs.zjstatus.packages.${system}.default}/bin/zjstatus.wasm";
 in
 {
   programs.zellij = {
