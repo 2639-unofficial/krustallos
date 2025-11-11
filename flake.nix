@@ -27,6 +27,7 @@
 
     # Statusbar plugin for Zellij
     zjstatus.url = "github:dj95/zjstatus/main";
+    zjstatus.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs @ { self, nixpkgs, home-manager, ... }: {
