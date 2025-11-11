@@ -2,11 +2,11 @@
 
 {
   imports = [
-    ../common/container.nix
-    # ../common/dns.nix
-    ../common/input-method.nix
-    ../common/niri.nix
-    ../common/nix.nix
-    ../common/nix-ld.nix
+    ./container.nix
+    # ./dns.nix
+    ./input-method.nix
+    ./niri.nix
+    ./nix.nix
+    ./nix-ld.nix
   ];
 }
