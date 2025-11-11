@@ -22,6 +22,7 @@
       ./distrobox.nix
       ./git.nix
       ./helix.nix
+      ./nushell.nix
       ./tealdeer.nix
       ./yazi.nix
       ./zellij.nix
