@@ -94,6 +94,8 @@
   programs.eza.enable = true;
   programs.eza.git = true;
 
+  gtk.gtk4.theme = null;
+
   # Automouting USB drives
   # REF: https://wiki.nixos.org/wiki/USB_storage_devices
   services.udiskie = {
