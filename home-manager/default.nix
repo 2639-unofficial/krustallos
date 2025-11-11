@@ -60,6 +60,7 @@
       ./niri.nix
       ./plasma-polkit-agent.nix
       ./wl-kbptr.nix
+      # ./wleave.nix
       ./wlogout.nix
       ./wlr-which-key.nix
     ];

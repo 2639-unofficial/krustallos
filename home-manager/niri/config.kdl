@@ -496,6 +496,7 @@ binds {
     Mod+Shift+Z { spawn-sh "pkill -SIGUSR1 waybar"; }
 
     Super+Alt+Z { spawn-sh "wlogout --buttons-per-row 6"; }
+    // Super+Alt+Z { spawn-sh "wleave --buttons-per-row 6"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.

@@ -83,14 +83,14 @@
         margin : ${frame-margin}px 0px ${frame-margin}px ${frame-margin}px;
       }
 
-      #logout {
-        background-image: ${icon "logout"};
+      #hibernate {
+        background-image: ${icon "hibernate"};
         border-radius: 0px 0px 0px 0px;
         margin : ${frame-margin}px 0px ${frame-margin}px 0px;
       }
 
-      #suspend {
-        background-image: ${icon "suspend"};
+      #logout {
+        background-image: ${icon "logout"};
         border-radius: 0px 0px 0px 0px;
         margin : ${frame-margin}px 0px ${frame-margin}px 0px;
       }
@@ -101,8 +101,8 @@
         margin : ${frame-margin}px 0px ${frame-margin}px 0px;
       }
 
-      #hibernate {
-        background-image: ${icon "hibernate"};
+      #suspend {
+        background-image: ${icon "suspend"};
         border-radius: 0px 0px 0px 0px;
         margin : ${frame-margin}px 0px ${frame-margin}px 0px;
       }
