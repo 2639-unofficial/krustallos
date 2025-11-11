@@ -45,5 +45,6 @@ in
     noto-fonts-cjk-serif
     ttf-tw-moe
     ocr-a
+    udev-gothic # waybar calendar (with`ja_JP.utf8`) aligns at 9pt
   ];
 }

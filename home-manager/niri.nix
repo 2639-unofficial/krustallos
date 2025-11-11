@@ -32,6 +32,7 @@ in
   ];
 
   programs.waybar.enable = true;
+  xdg.configFile."waybar/color.css".source = mkOutOfStoreSymlink "${config-path.waybar}/color.css";
   xdg.configFile."waybar/style.css".source = mkOutOfStoreSymlink "${config-path.waybar}/style.css";
   xdg.configFile."waybar/config.jsonc".source = mkOutOfStoreSymlink "${config-path.waybar}/config.jsonc";
   xdg.configFile."waybar/nix-snowflake-24x24.png".source = "${pkgs.nixos-icons}/share/icons/hicolor/24x24/apps/nix-snowflake.png";

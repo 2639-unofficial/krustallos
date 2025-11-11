@@ -20,6 +20,7 @@
   "modules-right": [
     "pulseaudio"
   ],
+  // TODO: Consider using the image module instead
   "custom/nix-logo": {
     "format": " ",
     "tooltip": false
@@ -55,11 +56,11 @@
   },
   "clock": {
     "justify": "center",
-    // "format": "{:%m\n%d\n—\n<span color='#bbbbbb'>%H\n%M</span>}",
-    // "format": "{:%m\n%d\n\n<span color='#f0cabf'>%H\n%M</span>}",
-    // "format": "{:%b\n%d\n\n<span color='#f0cabf'>%H\n%M</span>}",
-    "format": "{:%d\n<small>%a</small>\n\n<span color='#f0cabf'>%H\n%M</span>}",
-    "tooltip-format": "<small>{calendar}</small>",
+    "locale": "ja_JP.utf8",
+    // "format": "{:%d\n<small>%a</small>\n\n<span color='#f0cabf'>%H\n%M</span>}",
+    "format": "{:L%d\n<span size='9pt' font='UDEV Gothic'>%a</span>\n\n<span color='#f0cabf'>%H\n%M</span>}",
+    // "tooltip-format": "<small>{calendar}</small>",
+    "tooltip-format": "<span size='9pt' font='UDEV Gothic'>{calendar}</span>",
     "calendar": {
       "mode": "year",
       "mode-mon-col": 3,
