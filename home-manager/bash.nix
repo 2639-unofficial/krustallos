@@ -43,6 +43,12 @@ in
         cd "$root"
       }
 
+      # Prints the absolute path of a command by resolving symlinks
+      # Useful for getting the /nix/store path of a command
+      rwhich() {
+        readlink -f "$(command -v -- $1)"
+      }
+
       # Show directory contents when changing to a new directory,
       # with a size threshold to avoid performance hit
       export PROMPT_COMMAND='
