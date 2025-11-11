@@ -21,9 +21,12 @@ in
   xdg.configFile."niri".source = mkOutOfStoreSymlink config-path.niri;
 
   home.packages = with pkgs; [
-    swww        # Wallpaper
+    awww        # Wallpaper
+    brightnessctl
     libnotify   # Notify-send
     hyprpicker  # Color picker
+    # satty       # Screenshot annotation, might want to checkout github:AlexanderVanhee/Gradia
+    wayscriber  # Real-time screen annotation tool
     wlrctl      # Wayland cli util
     xwayland-satellite
   ];

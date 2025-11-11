@@ -288,7 +288,7 @@ spawn-at-startup "waybar"
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
-spawn-at-startup "swww-daemon"
+spawn-at-startup "awww-daemon"
 // TODO: try swayidle (REF: niri from arch wiki)
 // spawn-sh-at-startup "swayidle -w timeout 601 niri msg action power-off-monitors timeout 600 swaylock -f before-sleep swaylock -f"
 
