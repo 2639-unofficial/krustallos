@@ -94,6 +94,14 @@
   programs.eza.enable = true;
   programs.eza.git = true;
 
+  # Automouting USB drives
+  # REF: https://wiki.nixos.org/wiki/USB_storage_devices
+  services.udiskie = {
+    enable = true;
+      # Workaround for https://github.com/nix-community/home-manager/issues/632
+    settings.program_options.file_manager = "${pkgs.xdg-utils}/bin/xdg-open";
+  };
+
   # Nix CLI helper
   # NOTE: nh only cleanups the user profile when GC is enabled via home-manager
   #       So it's better to utilize the nixos options for cleaning
