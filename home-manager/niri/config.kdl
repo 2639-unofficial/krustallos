@@ -445,15 +445,8 @@ binds {
 
     Mod+Alt+Space { spawn "tofi-drun"; }
 
-    // TODO: Reconfigure with wlr-which-key
-    // // Mod+A       { spawn-sh "wl-kbptr -o modes=tile,bisect"; }
-    // Mod+A       { spawn-sh "wl-kbptr -o modes=tile,split"; }
-    // // Mod+Ctrl+A  { spawn-sh "wl-kbptr -o modes=floating && wlrctl pointer click left"; }
-    // // Mod+Shift+A { spawn-sh "wl-kbptr -o modes=floating && wlrctl pointer click middle"; }
-    // // Mod+Alt+A   { spawn-sh "wl-kbptr -o modes=floating && wlrctl pointer click right"; }
-    // Mod+Ctrl+A  { spawn-sh "wl-kbptr -o modes=floating,click -o mode_click.button=left"; }
-    // Mod+Shift+A { spawn-sh "wl-kbptr -o modes=floating,click -o mode_click.button=middle"; }
-    // Mod+Alt+A   { spawn-sh "wl-kbptr -o modes=floating,click -o mode_click.button=right"; }
+    // Mouse click with wl-kbptr
+    Mod+X { spawn-sh "wlr-which-key cursor"; }
 
     // Reload waybar
     Mod+Z { spawn-sh "pkill -SIGUSR2 waybar"; }

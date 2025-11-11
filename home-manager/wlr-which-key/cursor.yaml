@@ -1,0 +1,22 @@
+font: monospace
+background: "#000000bf"
+color: "#f0cabf"
+border: "#f0cabf"
+separator: " ➜ "
+border_width: 2
+corner_r: 7
+padding: 16
+
+menu:
+  - key: "c"
+    desc: "[Split] wl-kbptr"
+    cmd: wl-kbptr -o modes=tile,split
+  - key: "g"
+    desc: "[Float] Click left"
+    cmd: wl-kbptr -o modes=floating,click -o mode_click.button=left
+  - key: "h"
+    desc: "[Float] Click right"
+    cmd: wl-kbptr -o modes=floating,click -o mode_click.button=right
+  - key: "b"
+    desc: "[Float] Click middle"
+    cmd: wl-kbptr -o modes=floating,click -o mode_click.button=middle
