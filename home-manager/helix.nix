@@ -1,10 +1,10 @@
-{ inputs, config, pkgs, system, ... }:
+{ inputs, config, pkgs, system, krustallos-path, ... }:
 let
   # Skips the input but impurifies the build (use --impure to rebuild)
   # helix = (builtins.getFlake "github:helix-editor/helix/master").packages.${system}.default;
 
   helix = inputs.helix.packages.${system}.default;
-  config-path = "${config.home.homeDirectory}/krustallos/home-manager/helix";
+  config-path = "${krustallos-path}/home-manager/helix";
 in
 {
   programs.helix = {

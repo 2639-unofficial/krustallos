@@ -8,6 +8,11 @@
   # Extra arguments that get passed to imported nix modules
   _module.args = {
     inherit (pkgs.stdenv.hostPlatform) system;
+
+    # The impure path of this flake
+    # Safety: To avoid infinite recursion, `home.homeDirectory` must
+    # be set before importing this file
+    krustallos-path = "${config.home.homeDirectory}/krustallos";
   };
 
   imports = let
