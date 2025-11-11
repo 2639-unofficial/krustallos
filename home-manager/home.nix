@@ -54,45 +54,62 @@
 
   # User packages
   home.packages = with pkgs; [
+    crosspipe          # Pipewire graph
+    # discord
     firefox
+    fractal            # Matrix client (text selection bug: https://gitlab.gnome.org/World/fractal/-/issues/1088)
     ghostty
     # koreader           # Ebook reader
     # losslesscut-bin    # FFmpeg gui
     # mixxc              # Volume mixer widget
+    obsidian             # Local-first note-taking with markdown (foss alt: logseq)
     # oculante           # Image viewer
     pavucontrol        # Sound control
+    # planify            # Task manager / Todo list
     pwvucontrol        # Pipewire volume control
     readest            # Ebook reader
     # rnote              # Handwritten notes
     sioyek             # PDF reader
     # sniffnet           # Network monitor
+    vesktop            # Discord with Vencord
     zathura            # PDF reader
   ] ++ [
     btop
     bluetui            # Bluetooth manager
     charm-freeze       # Screenshot for code
-    comma              # Auto nix run
+    comma              # Auto nix run (TODO: Replace with https://github.com/nix-community/nix-index-database)
+    dig                # DNS utilities
     dust               # Disk usage
     fd
     # gibo               # gitignore boilerplates
-    hexyl              # Hex viewser
+    hexyl              # Hex viewer
     # hyperfine          # Benchmarking
     nitch              # Pretty fetch in Nim
+    # nix-inspect        # Interactively dissect nix config
     # numbat             # Featureful Calculator
     pfetch-rs
     tokei              # Line count
     ouch               # (De)Compressor
     # rdap               # Registration data
+    # rip2               # Safe rm (xdg-trash alt, recycle)
     ripdrag            # Floating drag and drop
     ripgrep
     systemctl-tui
+    # vulnix             # CVE scanner for nix
     wl-clipboard-rs
   ];
+
+  home.shellAliases = {
+    sctui = "systemctl-tui";
+  };
 
   # Ensure proper shell integration
   programs.fzf.enable = true;
   programs.eza.enable = true;
   programs.eza.git = true;
+
+  # TODO: Try using keepassxc as the org.freedesktop.secrets dbus service with a new kdbx vault
+  programs.keepassxc.enable = true;
 
   gtk.gtk4.theme = null;
 
@@ -127,6 +144,7 @@
   };
 
   # Locate nixpkgs binary
+  # TODO: Consider replacing it with https://github.com/nix-community/nix-index-database
   programs.nix-index.enable = true;
 
   # Open the HTML manual with `home-manager-help`
