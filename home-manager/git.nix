@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   programs.git = {
@@ -61,4 +61,13 @@
     settings.git_protocol = "ssh";
     gitCredentialHelper.enable = true;
   };
+
+  # EXPERIMENTAL: Trying out jj
+  programs.jujutsu = {
+    enable = true;
+  };
+
+  home.packages = [
+    pkgs.jj-fzf
+  ];
 }
