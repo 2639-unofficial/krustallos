@@ -9,6 +9,9 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
 
+    # Configure the igpu
+    ./igpu.nix
+
     # Include common utilities
     # NOTE: Implicitly import ../common/default.nix
     ../common
