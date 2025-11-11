@@ -1,6 +1,8 @@
 # theme = "ayu_dark"
 theme = "rose_pine_murk"
 
+# See https://github.com/helix-editor/helix/wiki/Recipes for some interesting ones
+
 [editor]
 line-number = "relative"
 bufferline = "multiple"
@@ -11,7 +13,6 @@ completion-timeout = 5
 completion-trigger-len = 1
 # popup-border = "all"
 jump-label-alphabet = "asdf;lkjweroiughtycvbmn"
-end-of-line-diagnostics = "hint"
 rainbow-brackets = true
 
 [editor.file-picker]
@@ -34,9 +35,6 @@ left = [ "mode", "spinner", "spacer", "version-control", "file-name", "read-only
 center = [ "diagnostics", "register" ]
 right = [ "selections", "primary-selection-length", "separator", "position", "position-percentage", "spacer", "separator", "file-encoding", "file-line-ending", "file-type" ]
 separator = "┆"
-
-[editor.inline-diagnostics]
-cursor-line = "warning"
 
 [editor.whitespace.render]
 tab = "all"
@@ -68,7 +66,7 @@ A-x = ":buffer-close-others"
 "." = "file_picker_in_current_buffer_directory"
 
 # Copy the github url of the current line to the system clipboard
-B = ":sh wl-copy %sh{gh browse --no-browser %{buffer_name}:%{cursor_line}}"
+B = ":set-register + %sh{gh browse --no-browser %{buffer_name}:%{cursor_line}}"
 
 [keys.normal.space.l]
 c = [":write!", ":run-shell-command zellij run --floating -- just check"]
