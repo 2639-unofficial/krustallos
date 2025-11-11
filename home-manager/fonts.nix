@@ -27,14 +27,19 @@ in
     font-awesome
     geist-font
     ibm-plex
+    icomoon-feather
     inter
     iosevka
     jetbrains-mono
+    # jigmo          # Serif CJKV font
     lexend
     liberation_ttf
     libertinus
     monaspace
+    # nerd-fonts.fantasque-sans-mono
     nerd-fonts.inconsolata
+    # nerd-fonts.iosevka
+    # nerd-fonts.jetbrains-mono
     noto-fonts
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
