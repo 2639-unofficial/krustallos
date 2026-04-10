@@ -1,4 +1,5 @@
 // NOTE: Default config at https://github.com/YaLTeR/niri/blob/main/resources/default-config.kdl
+// Inspect diffs by `cd $NIRI_SRC && git log -p resources/default-config.kdl`
 
 // This config is in the KDL format: https://kdl.dev
 // "/-" comments out the following node.
