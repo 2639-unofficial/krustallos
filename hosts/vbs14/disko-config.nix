@@ -55,6 +55,10 @@
               type = "filesystem";
               format = "ext4";
               mountpoint = "/";
+
+              # NOTE: For systemd stage 1, a.k.a. initrd
+              # See https://discourse.nixos.org/t/breaking-changes-announcement-for-unstable/17574/127
+              mountOptions = [ "x-systemd.device-timeout=infinity" ];
             };
           };
         };
