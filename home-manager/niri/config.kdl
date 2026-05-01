@@ -374,6 +374,10 @@ window-rule {
 window-rule {
     match app-id=r#"com\.mitchellh\.ghostty"#
     draw-border-with-background false
+
+    background-effect {
+        blur true
+    }
 }
 
 // Open the Firefox picture-in-picture player as floating by default.
@@ -422,6 +426,29 @@ window-rule {
 window-rule {
     geometry-corner-radius 7
     clip-to-geometry true
+}
+
+window-rule {
+    match app-id=r#"^wlr-which-key$"#
+
+    background-effect {
+        blur true
+        xray false
+    }
+}
+
+// Enable blur behind programs on the top and overlay layers
+layer-rule {
+    match layer="top"
+    match layer="overlay"
+
+    // match namespace="^launcher$"
+    // match namespace="^waybar$"
+
+    background-effect {
+        blur true
+        xray false
+    }
 }
 
 binds {
