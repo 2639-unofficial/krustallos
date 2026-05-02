@@ -1,5 +1,6 @@
 # theme = "ayu_dark"
-theme = "rose_pine_murk"
+# theme = "rose_pine_murk"
+theme = "rose_pine_limpid"
 
 # See https://github.com/helix-editor/helix/wiki/Recipes for some interesting ones
 

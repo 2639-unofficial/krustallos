@@ -1,0 +1,11 @@
+inherits = "rose_pine_murk"
+
+# Transparent background (for blur)
+"ui.background" = {}
+"ui.background.separator" = {}
+"ui.bufferline" = { fg = "muted" }
+"ui.statusline" = { fg = "subtle" }
+"ui.statusline.inactive" = { fg = "muted" }
+"ui.popup" = { }
+"ui.popup.info" = { }
+"ui.window" = { fg = "overlay" }
