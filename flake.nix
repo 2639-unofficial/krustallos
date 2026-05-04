@@ -28,6 +28,10 @@
     # Statusbar plugin for Zellij
     zjstatus.url = "github:dj95/zjstatus/main";
     zjstatus.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Declarative flatpak manager; useful for GUI programs and basic bubblewrap sandbox
+    # Related: [NixOS-integrated Flatpak package management](https://github.com/NixOS/nixpkgs/pull/347605)
+    nix-flatpak.url = "github:gmodena/nix-flatpak/main";
   };
 
   outputs = inputs @ { self, nixpkgs, home-manager, ... }: {

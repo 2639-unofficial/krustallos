@@ -33,6 +33,7 @@
 
     gui = [
       ./cursor.nix
+      ./flatpak.nix
       ./fonts.nix
       ./wezterm.nix
     ];

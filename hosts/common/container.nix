@@ -1,6 +1,9 @@
 { ... }:
 
 {
+  # Enable flatpak system support; declaratively manage flatpak apps via nix-flatpak in home-manager
+  services.flatpak.enable = true;
+
   virtualisation.podman = {
     enable = true;
 
