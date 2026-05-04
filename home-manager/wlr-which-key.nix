@@ -1,6 +1,6 @@
-{ config, pkgs, ... }:
+{ config, pkgs, krustallos-path, ... }:
 let
-  config-path = "${config.home.homeDirectory}/krustallos/home-manager/wlr-which-key";
+  config-path = "${krustallos-path}/home-manager/wlr-which-key";
 in
 {
   # Workaround before niri supports binding submaps
