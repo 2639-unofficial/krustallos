@@ -5,7 +5,7 @@
   home.homeDirectory = "/home/endi";
 
   imports = [
-    ../../home-manager/home.nix
+    ../../home-manager
   ];
 
   # This value determines the Home Manager release that your configuration is
