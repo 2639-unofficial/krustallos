@@ -14,6 +14,15 @@ in
   #   emoji = [ "Apple Color Emoji" ];
   # };
 
+  # # The font of firefox UI is tied to gtk, which defaults to Adwaita Sans (based on Inter)
+  # # Can also be set via `gtk.settings."org/gnome/desktop/interface".font-name`, and be
+  # # inspected via `gsettings list-recursively org.gnome.desktop.interface | rg font`
+  # gtk.font = {
+  #   # Does not support enabling font features (e.g., `Inter:ss02=1`)
+  #   name = "Atkinson Hyperlegible Next";
+  #   size = 11;
+  # };
+
   home.packages = with pkgs; [
     # andika
     apple-color-emoji
