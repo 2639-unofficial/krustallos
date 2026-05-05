@@ -3,23 +3,29 @@
 {
   fonts.fontconfig.enable = true;
 
-  # fonts.fontconfig.defaultFonts = {
-  #   serif = [ "Libertinus Serif" ];
-  #   sansSerif = [ "Atkinson Hyperlegible Next" ];
-  #   monospace = [ "JetBrains Mono" ];
-  #   # NOTE: For firefox, the default emoji font still need to be set via the
-  #   # `font.name-list.emoji` preference in about:config
-  #   emoji = [ "Apple Color Emoji" ];
-  # };
+  fonts.fontconfig.defaultFonts = {
+    serif = [
+      "Libertinus Serif"
+      "Noto Serif CJK TC"
+    ];
+    sansSerif = [
+      "Atkinson Hyperlegible Next"
+      "Noto Sans CJK TC"
+    ];
+    monospace = [ "JetBrains Mono" ];
+    # NOTE: For firefox, the default emoji font still need to be set via the
+    # `font.name-list.emoji` preference in about:config
+    emoji = [ "Apple Color Emoji" ];
+  };
 
-  # # The font of firefox UI is tied to gtk, which defaults to Adwaita Sans (based on Inter)
-  # # Can also be set via `gtk.settings."org/gnome/desktop/interface".font-name`, and be
-  # # inspected via `gsettings list-recursively org.gnome.desktop.interface | rg font`
-  # gtk.font = {
-  #   # Does not support enabling font features (e.g., `Inter:ss02=1`)
-  #   name = "Atkinson Hyperlegible Next";
-  #   size = 11;
-  # };
+  # The font of firefox UI is tied to gtk, which defaults to Adwaita Sans (based on Inter)
+  # Can also be set via `gtk.settings."org/gnome/desktop/interface".font-name`, and be
+  # inspected via `gsettings list-recursively org.gnome.desktop.interface | rg font`
+  gtk.font = {
+    # Does not support enabling font features (e.g., `Inter:ss02=1`)
+    name = "Atkinson Hyperlegible Next";
+    size = 11;
+  };
 
   home.packages = with pkgs; [
     # andika
