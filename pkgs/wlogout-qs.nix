@@ -16,11 +16,11 @@ stdenvNoCC.mkDerivation (finalAttrs: {
 
   installPhase = ''
     runHook preInstall
-  
+
     install -Dt $out/share/quickshell/wlogout-qs $src/*
 
     # Use the svg icons from wleave
-    substituteInPlace $out/share/quickshell/wlogout-qs/WLogout.qml \
+    substituteInPlace $out/share/quickshell/wlogout-qs/LogoutButton.qml \
       --replace-fail "icons/" "${wleave}/share/wleave/icons/"
 
     makeWrapper ${lib.getExe quickshell} $out/bin/wlogout-qs \

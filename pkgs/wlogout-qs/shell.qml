@@ -4,52 +4,58 @@ import Quickshell
 // REF: https://git.outfoxxed.me/quickshell/quickshell-examples/src/branch/master/wlogout
 ShellRoot {
 	WLogout {
-		LogoutButton {
+		LogoutAction {
 			command: "loginctl lock-session"
 			keybind: Qt.Key_L
 			text: "Lock"
 			icon: "lock"
-			hoverColor: "#f9e2af"
+			accentColor: "#f9e2af"
+			quitAfterExec: true
 		}
 
-		LogoutButton {
+		LogoutAction {
 			command: "loginctl terminate-user $USER"
 			keybind: Qt.Key_E
 			text: "Logout"
 			icon: "logout"
-			hoverColor: "#f9c5af"
+			accentColor: "#f9c5af"
+			quitAfterExec: false
 		}
 
-		LogoutButton {
+		LogoutAction {
 			command: "systemctl suspend"
 			keybind: Qt.Key_U
 			text: "Suspend"
 			icon: "suspend"
-			hoverColor: "#caaff9"
+			accentColor: "#caaff9"
+			quitAfterExec: true
 		}
 
-		LogoutButton {
+		LogoutAction {
 			command: "systemctl hibernate"
 			keybind: Qt.Key_H
 			text: "Hibernate"
 			icon: "hibernate"
-			hoverColor: "#a8c0ff"
+			accentColor: "#a8c0ff"
+			quitAfterExec: true
 		}
 
-		LogoutButton {
+		LogoutAction {
 			command: "systemctl poweroff"
 			keybind: Qt.Key_S
 			text: "Shutdown"
 			icon: "shutdown"
-			hoverColor: "#ff8d8d"
+			accentColor: "#ff8d8d"
+			quitAfterExec: false
 		}
 
-		LogoutButton {
+		LogoutAction {
 			command: "systemctl reboot"
 			keybind: Qt.Key_R
 			text: "Reboot"
 			icon: "reboot"
-			hoverColor: "#84ffaa"
+			accentColor: "#84ffaa"
+			quitAfterExec: false
 		}
 	}
 }
