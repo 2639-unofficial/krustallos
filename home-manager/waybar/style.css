@@ -39,6 +39,26 @@ window#waybar {
   color: @accent;
 }
 
+#battery {
+  color: @bar-fg;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: @accent;
+}
+
+#battery.critical:not(.charging) {
+  color: @bar-fg;
+  animation: blink 1.5s linear infinite alternate;
+}
+
+@keyframes blink {
+  to {
+    color: @urgent;
+  }
+}
+
 #pulseaudio {
   margin: 0px 0px 12px 0px;
 }

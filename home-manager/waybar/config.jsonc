@@ -18,6 +18,7 @@
     "clock"
   ],
   "modules-right": [
+    "battery",
     "pulseaudio"
   ],
   // TODO: Consider using the image module instead
@@ -78,6 +79,23 @@
       "on-click-right": "mode",
       "on-scroll-up": "shift_up",
       "on-scroll-down": "shift_down"
+    }
+  },
+  "battery": {
+    "justify": "center",
+    "format": "<span size='80%'>{icon}</span>\n{capacity}%",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "bat": "BAT1",
+    "interval": 60,
+    "states": {
+      "warning": 30,
+      "critical": 15
     }
   },
   "pulseaudio": {
