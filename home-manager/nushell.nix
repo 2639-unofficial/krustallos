@@ -17,7 +17,7 @@
       # Related: https://github.com/nushell/nushell/issues/16106
       $env.config.completions.algorithm = "fuzzy" # prefix, substring, fuzzy
 
-      # Prints the absolute path of a command by resolving symlinks
+      # Print the absolute path of a command by resolving symlinks
       # Useful for getting the /nix/store path of a command
       def rwhich [...apps] { which --all ...$apps | update path { path expand } }
     '';

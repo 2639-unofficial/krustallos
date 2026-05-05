@@ -57,7 +57,8 @@
               mountpoint = "/";
 
               # NOTE: For systemd stage 1, a.k.a. initrd
-              # See https://discourse.nixos.org/t/breaking-changes-announcement-for-unstable/17574/127
+              # See https://nixos.org/manual/nixos/unstable/release-notes#sec-release-26.05
+              # Related: https://discourse.nixos.org/t/migrating-to-boot-initrd-systemd-and-debugging-stage-1-systemd-services/54444/27
               mountOptions = [ "x-systemd.device-timeout=infinity" ];
             };
           };

@@ -35,7 +35,7 @@
   };
 
   outputs = inputs @ { self, nixpkgs, home-manager, ... }: {
-    # NixOS configuration entrypoint
+    # NixOS configuration entry point
     nixosConfigurations = {
       mfm8s = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
@@ -47,7 +47,7 @@
       };
     };
 
-    # Home manager configuration entrypoint
+    # Home manager configuration entry point
     homeConfigurations = {
       "unofficial@mfm8s" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
