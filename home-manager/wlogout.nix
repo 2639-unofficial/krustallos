@@ -11,12 +11,18 @@
       popup-bg = "#000000";
       popup-fg = "#f0cabf";
 
+      font-size = "16px";
+      frame-radius = "40px";
+      popup-radius = "25px";
+
+      # For large screen
       # TODO: Scale dynamically with the monitor size
-      font-size = toString 16;
-      frame-radius = toString 40;
-      frame-margin = toString 280;
-      popup-radius = toString 25;
-      popup-margin = toString 230;
+      frame-margin = "280px";
+      popup-margin = "230px";
+
+      # For small screen
+      # frame-margin = "20px";
+      # popup-margin = "2px";
 
       # icon-file = name: "${pkgs.wlogout}/share/wlogout/assets/${name}.svg";
       icon-file = name: "${pkgs.wleave}/share/wleave/icons/${name}.svg";
@@ -25,7 +31,7 @@
       * {
         background-image: none;
         font-family: monospace;
-        font-size: ${font-size}px;
+        font-size: ${font-size};
       }
 
       window {
@@ -55,62 +61,62 @@
         color: ${popup-fg};
         background-color: ${popup-bg};
         background-size: 40%;
-        border-radius: ${popup-radius}px;
+        border-radius: ${popup-radius};
         transition: all 0.3s cubic-bezier(.2, .2, .3, 1.7);
       }
 
       button:hover#lock {
-        border-radius: ${popup-radius}px;
-        margin : ${popup-margin}px 0px ${popup-margin}px ${frame-margin}px;
+        border-radius: ${popup-radius};
+        margin: ${popup-margin} 0px ${popup-margin} ${frame-margin};
       }
 
       button:hover#logout,
       button:hover#suspend,
       button:hover#shutdown,
       button:hover#hibernate {
-        border-radius: ${popup-radius}px;
-        margin : ${popup-margin}px 0px ${popup-margin}px 0px;
+        border-radius: ${popup-radius};
+        margin: ${popup-margin} 0px ${popup-margin} 0px;
       }
 
       button:hover#reboot {
-        border-radius: ${popup-radius}px;
-        margin : ${popup-margin}px ${frame-margin}px ${popup-margin}px 0px;
+        border-radius: ${popup-radius};
+        margin: ${popup-margin} ${frame-margin} ${popup-margin} 0px;
       }
 
       #lock {
         background-image: ${icon "lock"};
-        border-radius: ${frame-radius}px 0px 0px ${frame-radius}px;
-        margin : ${frame-margin}px 0px ${frame-margin}px ${frame-margin}px;
+        border-radius: ${frame-radius} 0px 0px ${frame-radius};
+        margin: ${frame-margin} 0px ${frame-margin} ${frame-margin};
       }
 
       #hibernate {
         background-image: ${icon "hibernate"};
         border-radius: 0px 0px 0px 0px;
-        margin : ${frame-margin}px 0px ${frame-margin}px 0px;
+        margin: ${frame-margin} 0px ${frame-margin} 0px;
       }
 
       #logout {
         background-image: ${icon "logout"};
         border-radius: 0px 0px 0px 0px;
-        margin : ${frame-margin}px 0px ${frame-margin}px 0px;
+        margin: ${frame-margin} 0px ${frame-margin} 0px;
       }
 
       #shutdown {
         background-image: ${icon "shutdown"};
         border-radius: 0px 0px 0px 0px;
-        margin : ${frame-margin}px 0px ${frame-margin}px 0px;
+        margin: ${frame-margin} 0px ${frame-margin} 0px;
       }
 
       #suspend {
         background-image: ${icon "suspend"};
         border-radius: 0px 0px 0px 0px;
-        margin : ${frame-margin}px 0px ${frame-margin}px 0px;
+        margin: ${frame-margin} 0px ${frame-margin} 0px;
       }
 
       #reboot {
         background-image: ${icon "reboot"};
-        border-radius: 0px ${frame-radius}px ${frame-radius}px 0px;
-        margin : ${frame-margin}px ${frame-margin}px ${frame-margin}px 0px;
+        border-radius: 0px ${frame-radius} ${frame-radius} 0px;
+        margin: ${frame-margin} ${frame-margin} ${frame-margin} 0px;
       }
     '';
   };
