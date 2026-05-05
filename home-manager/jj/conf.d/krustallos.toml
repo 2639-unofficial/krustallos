@@ -1,0 +1,9 @@
+[[--scope]]
+--when.repositories = [ "@krustallos_path@" ]
+
+[--scope.template-aliases]
+# Display only name (without full email) in `jj log`
+'format_short_signature(signature)' = 'signature.name()'
+
+# Display only the username part of the email in `jj log`
+# 'format_short_signature(signature)' = 'signature.email().local()'

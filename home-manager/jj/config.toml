@@ -1,0 +1,17 @@
+# NOTE: Set the user email impurely in `$XDG_CONFIG_HOME/jj/conf.d/email.toml`
+# until I setup secret management properly
+# [user]
+# name = ""
+# email = ""
+
+[ui]
+pager = "delta"
+diff-formatter = ":git"
+
+[git]
+# Prevent pushing work in progress or anything explicitly labeled "private"
+private-commits = "description('x:*' | 'wip:*' | 'private:*')"
+
+[templates]
+# See $JJ_SRC/cli/scr/config/templates.toml for all built-in templates
+draft_commit_description = "builtin_draft_commit_description_with_diff"

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, krustallos, pkgs, ... }:
 
 {
   programs.git = {
@@ -64,12 +64,18 @@
     gitCredentialHelper.enable = true;
   };
 
-  # EXPERIMENTAL: Trying out jj
-  programs.jujutsu = {
-    enable = true;
-  };
-
-  home.packages = [
-    pkgs.jj-fzf
+  home.packages = with pkgs; [
+    jujutsu
+    jj-fzf
   ];
+
+  # NOTE: There is also a jujutsu home-manager module, but the
+  # out-of-store symlink is more convenient for experimenting
+  xdg.configFile = let
+      inherit (config.lib.file) mkOutOfStoreSymlink;
+  in {
+    "jj/config.toml".source = mkOutOfStoreSymlink "${krustallos.path}/home-manager/jj/config.toml";
+
+    "jj/conf.d/krustallos.toml".source = pkgs.replaceVars ./jj/conf.d/krustallos.toml { krustallos_path = krustallos.path; };
+  };
 }
