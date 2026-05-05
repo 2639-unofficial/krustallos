@@ -21,10 +21,10 @@
   imports = let
     cli = [
       ./bash.nix
-      ./direnv.nix
       ./distrobox.nix
       ./git.nix
       ./helix.nix
+      ./nix.nix
       ./nushell.nix
       ./tealdeer.nix
       ./yazi.nix
@@ -54,8 +54,6 @@
     misc
   ];
 
-  nixpkgs.config.allowUnfree = true;
-
   # User packages
   home.packages = with pkgs; [
     crosspipe          # Pipewire graph
@@ -81,7 +79,6 @@
     btop
     bluetui            # Bluetooth manager
     charm-freeze       # Screenshot for code
-    comma              # Auto nix run (TODO: Replace with https://github.com/nix-community/nix-index-database)
     dig                # DNS utilities
     dust               # Disk usage
     fd
@@ -89,7 +86,6 @@
     hexyl              # Hex viewer
     # hyperfine          # Benchmarking
     nitch              # Pretty fetch in Nim
-    # nix-inspect        # Interactively dissect nix config
     # numbat             # Featureful Calculator
     pfetch-rs
     tokei              # Line count
@@ -99,7 +95,6 @@
     ripdrag            # Floating drag and drop
     ripgrep
     systemctl-tui
-    # vulnix             # CVE scanner for nix
     wl-clipboard-rs
   ];
 
@@ -129,27 +124,6 @@
     enable = true;
     generateCaches = true;
   };
-
-  # Nix CLI helper
-  # NOTE: nh only cleanups the user profile when GC is enabled via home-manager
-  #       So it's better to utilize the nixos options for cleaning
-  programs.nh = {
-    enable = true;
-    flake = "${config.home.homeDirectory}/krustallos";
-  };
-
-  # `nix run n#hello` with ease!
-  # NOTE: Setting an entry in the user registry, instead of the system registry,
-  # makes it OS-agnostic, and is thus more desirable
-  # TODO: Try out https://github.com/numtide/nixpkgs-unfree to run unfree
-  # packages without `NIXPKGS_ALLOW_UNFREE=1 nix run --impure ...`
-  nix.registry = {
-    n.flake = inputs.nixpkgs;
-  };
-
-  # Locate nixpkgs binary
-  # TODO: Consider replacing it with https://github.com/nix-community/nix-index-database
-  programs.nix-index.enable = true;
 
   # Open the HTML manual with `home-manager-help`
   manual.html.enable = true;
