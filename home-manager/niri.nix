@@ -1,11 +1,11 @@
-{ config, inputs, pkgs, krustallos-path, ... }:
+{ config, inputs, pkgs, krustallos, ... }:
 let
   inherit (config.lib.file) mkOutOfStoreSymlink;
 
   config-path = {
-    niri   = "${krustallos-path}/home-manager/niri";
-    waybar = "${krustallos-path}/home-manager/waybar";
-    fuzzel = "${krustallos-path}/home-manager/fuzzel";
+    niri   = "${krustallos.path}/home-manager/niri";
+    waybar = "${krustallos.path}/home-manager/waybar";
+    fuzzel = "${krustallos.path}/home-manager/fuzzel";
   };
 in
 {
