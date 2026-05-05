@@ -77,7 +77,7 @@
     vesktop            # Discord with Vencord
     zathura            # PDF reader
   ] ++ [
-    btop
+    # btop               # Prefer system-level installation for hardware-specific setup
     bluetui            # Bluetooth manager
     charm-freeze       # Screenshot for code
     dig                # DNS utilities

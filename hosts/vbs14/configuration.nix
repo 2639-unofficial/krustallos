@@ -88,6 +88,7 @@
     wget
     git
     alacritty
+    btop-rocm
     # helix
   ];
 
