@@ -26,6 +26,8 @@
       merge.conflictsytle = "zdiff3";
       push.autosetupremote = true;
       pull.rebase = true;
+      # See https://github.com/justinsteven/advisories/blob/main/2022_git_buried_bare_repos_and_fsmonitor_various_abuses.md
+      safe.bareRepository = "explicit";
       url."ssh://git@github.com/".insteadOf = "https://github.com/";
     };
 
