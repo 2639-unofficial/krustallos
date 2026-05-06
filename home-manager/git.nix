@@ -64,6 +64,13 @@
     gitCredentialHelper.enable = true;
   };
 
+  # See https://docs.github.com/en/github-cli/github-cli/github-cli-telemetry#how-to-opt-out
+  # via https://blog.gslin.org/archives/2026/04/23/13007/github-cli-預設會收集-telemetry-資料/
+  home.sessionVariables = {
+    GH_TELEMETRY = false;
+    DO_NOT_TRACK = true;
+  };
+
   home.packages = with pkgs; [
     jujutsu
     jj-fzf
