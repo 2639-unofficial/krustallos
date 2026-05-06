@@ -98,6 +98,9 @@ r = ":config-reload"
 c = ":config-open"
 r = ":config-reload"
 
+[keys.insert]
+C-i = "insert_register"
+
 [keys.select]
 w = 'extend_next_sub_word_start'
 b = 'extend_prev_sub_word_start'
