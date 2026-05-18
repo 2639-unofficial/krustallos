@@ -6,7 +6,7 @@
 > 1. ice
 > 2. rock crystal
 
-The aggregation of nix and flakes. (Certainly not "K, Rust all OS.")
+The aggregation of nix and flakes. (Certainly not "K, [Rust](https://rust-for-linux.com/) all OS.")
 
 This is the unofficial NixOS configuration of 2639's generally general-purpose
 (sometimes application-specific) space heaters.
