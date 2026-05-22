@@ -7,6 +7,7 @@
 [ui]
 pager = "delta"
 diff-formatter = ":git"
+conflict-marker-style = "git" # Set to "snapshot" for conflicts that are more complex
 
 [git]
 # Prevent pushing work in progress or anything explicitly labeled "private"
