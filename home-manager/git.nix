@@ -3,6 +3,11 @@
 {
   programs.git = {
     enable = true;
+
+    ignores = [
+      ".direnv/" # From nix-direnv
+    ];
+    
     settings = {
       alias = {
         ap = "add --patch";
