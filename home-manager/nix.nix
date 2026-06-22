@@ -24,9 +24,11 @@
     flake = krustallos.path;
   };
 
-  # Aliases for navigating to the flake, utilizing the env var set by nh
+  # Aliases for accessing the flake, utilizing the env var set by nh
   programs.nushell.shellAliases."cdf" = "cd $env.NH_FLAKE";
+  programs.nushell.shellAliases."hxf" = "hx $env.NH_FLAKE";
   programs.bash.shellAliases."cdf" = "cd $NH_FLAKE";
+  programs.bash.shellAliases."hxf" = "hx $NH_FLAKE";
 
   # `nix run n#hello` with ease!
   # NOTE: Setting an entry in the user registry, instead of the system registry,
