@@ -62,6 +62,7 @@
     firefox
     fractal            # Matrix client (text selection bug: https://gitlab.gnome.org/World/fractal/-/issues/1088)
     ghostty
+    # gnome-commander  # Daul-panel file manager
     # koreader           # Ebook reader
     # losslesscut-bin    # FFmpeg gui
     # mixxc              # Volume mixer widget
@@ -77,25 +78,33 @@
     vesktop            # Discord with Vencord
     zathura            # PDF reader
   ] ++ [
+    alsa-utils         # Useful audio related tools like `speaker-test`
     # btop               # Prefer system-level installation for hardware-specific setup
     bluetui            # Bluetooth manager
     charm-freeze       # Screenshot for code
     dig                # DNS utilities
+    # dmidecode          # Read hardware info from system BIOS
     dust               # Disk usage
+    # ethtool            # Network device utilities
     fd
     # gibo               # gitignore boilerplates
     hexyl              # Hex viewer
     # hyperfine          # Benchmarking
+    # lsof               # Find processes that have a given file open
     nitch              # Pretty fetch in Nim
     # numbat             # Featureful Calculator
+    pciutils           # lspci for inspecting PCI devices
     pfetch-rs
     tokei              # Line count
     ouch               # (De)Compressor
+    rclone             # Manage files on cloud storage
     # rdap               # Registration data
     # rip2               # Safe rm (xdg-trash alt, recycle)
     ripdrag            # Floating drag and drop
     ripgrep
     systemctl-tui
+    # smartmontools      # Hard drive health info; also see services.smartd in system config
+    usbutils           # lsusb for inspecting USB devices
     wl-clipboard-rs
   ];
 
