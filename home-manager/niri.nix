@@ -1,17 +1,8 @@
-{ config, pkgs, krustallos, ... }:
-let
-  inherit (config.lib.file) mkOutOfStoreSymlink;
+{ pkgs, krustallos, ... }:
 
-  config-path = {
-    niri   = "${krustallos.path}/home-manager/niri";
-    waybar = "${krustallos.path}/home-manager/waybar";
-    fuzzel = "${krustallos.path}/home-manager/fuzzel";
-  };
-in
 {
   # For wayland related systemd services like waybar and awww
   wayland.systemd.target = "niri.service";
-  xdg.configFile."niri".source = mkOutOfStoreSymlink config-path.niri;
 
   home.packages = with pkgs; [
     brightnessctl
@@ -27,13 +18,8 @@ in
 
   programs.waybar.enable = true;
   programs.waybar.systemd.enable = true;
-  xdg.configFile."waybar/color.css".source = mkOutOfStoreSymlink "${config-path.waybar}/color.css";
-  xdg.configFile."waybar/style.css".source = mkOutOfStoreSymlink "${config-path.waybar}/style.css";
-  xdg.configFile."waybar/config.jsonc".source = mkOutOfStoreSymlink "${config-path.waybar}/config.jsonc";
-  xdg.configFile."waybar/nix-snowflake-24x24.png".source = "${pkgs.nixos-icons}/share/icons/hicolor/24x24/apps/nix-snowflake.png";
 
   programs.fuzzel.enable = true;
-  xdg.configFile."fuzzel".source = mkOutOfStoreSymlink config-path.fuzzel;
 
   services.mako = {
     enable = true;
@@ -54,4 +40,14 @@ in
   # services.dunst.enable = true;
 
   programs.swaylock.enable = true;
+
+  xdg.configFile = {
+    "waybar/nix-snowflake-24x24.png".source = "${pkgs.nixos-icons}/share/icons/hicolor/24x24/apps/nix-snowflake.png";
+  } // krustallos.ln [
+    "niri"
+    "waybar/color.css"
+    "waybar/style.css"
+    "waybar/config.jsonc"
+    "fuzzel"
+  ];
 }

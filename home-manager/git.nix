@@ -1,4 +1,4 @@
-{ config, krustallos, pkgs, ... }:
+{ krustallos, pkgs, ... }:
 
 {
   programs.git = {
@@ -83,11 +83,7 @@
 
   # NOTE: There is also a jujutsu home-manager module, but the
   # out-of-store symlink is more convenient for experimenting
-  xdg.configFile = let
-      inherit (config.lib.file) mkOutOfStoreSymlink;
-  in {
-    "jj/config.toml".source = mkOutOfStoreSymlink "${krustallos.path}/home-manager/jj/config.toml";
-
+  xdg.configFile = {
     "jj/conf.d/krustallos.toml".source = pkgs.replaceVars ./jj/conf.d/krustallos.toml { krustallos_path = krustallos.path; };
-  };
+  } // krustallos.ln [ "jj/config.toml" ];
 }

@@ -15,6 +15,23 @@
       # SAFETY: To avoid infinite recursion, `home.homeDirectory` must be set
       # before importing this file
       path = "${config.home.homeDirectory}/krustallos";
+
+      # Impure symlink of list of paths into the home-manager directory of this flake
+      # Input: A list of (relative) paths in this directory
+      # Output: An attrset of `{ p.source = mkOutOfStoreSymlink p; }` for each p in paths
+      # TODO: Locate it in a better spot so language servers can find its definition on call sites
+      ln = paths:
+        paths
+        |> map (path: let
+          inherit (config.lib.file) mkOutOfStoreSymlink;
+          config-path = "${config.home.homeDirectory}/krustallos/home-manager";
+        in {
+          name = path;
+          value = {
+            source = mkOutOfStoreSymlink "${config-path}/${path}";
+          };
+        })
+        |> builtins.listToAttrs;
     };
   };
 

@@ -35,5 +35,6 @@ in
   #   recursive = true;
   # };
 
-  xdg.configFile."helix".source = config.lib.file.mkOutOfStoreSymlink config-path;
+  # xdg.configFile."helix".source = config.lib.file.mkOutOfStoreSymlink config-path;
+  xdg.configFile = krustallos.ln [ "helix" ];
 }

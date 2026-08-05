@@ -1,7 +1,5 @@
-{ config, pkgs, krustallos, ... }:
-let
-  config-path = "${krustallos.path}/home-manager/wlr-which-key";
-in
+{ pkgs, krustallos, ... }:
+
 {
   # Workaround before niri supports binding submaps
   # See also https://github.com/YaLTeR/niri/issues/846
@@ -9,5 +7,5 @@ in
     wlr-which-key
   ];
 
-  xdg.configFile."wlr-which-key".source = config.lib.file.mkOutOfStoreSymlink config-path;
+  xdg.configFile = krustallos.ln [ "wlr-which-key" ];
 }
