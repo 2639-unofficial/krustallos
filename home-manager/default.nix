@@ -52,6 +52,7 @@
       ./cursor.nix
       ./flatpak.nix
       ./fonts.nix
+      ./ghostty.nix
       ./wezterm.nix
     ];
 
@@ -79,7 +80,6 @@
     # discord
     firefox
     fractal            # Matrix client (text selection bug: https://gitlab.gnome.org/World/fractal/-/issues/1088)
-    ghostty
     # gnome-commander  # Daul-panel file manager
     # koreader           # Ebook reader
     # losslesscut-bin    # FFmpeg gui

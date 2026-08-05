@@ -1,0 +1,8 @@
+theme = Rose Pine
+background = #000000
+background-opacity = 0.8
+
+window-decoration = none
+window-padding-x = 8
+window-padding-y = 8
+window-padding-balance = true
