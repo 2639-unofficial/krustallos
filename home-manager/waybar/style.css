@@ -13,15 +13,22 @@ window#waybar {
   border-radius: 5px;
 }
 
+.modules-left {
+  margin: 9px 0px 0px 0px;
+}
+
+.modules-right {
+  margin: 0px 0px 9px 0px;
+}
+
+.module {
+  margin: 3px 0px;
+}
+
 #custom-nix-logo {
   background-image: url('./nix-snowflake-24x24.png');
   background-repeat: no-repeat;
   background-position: center;
-  margin: 12px 0px 4px 0px;
-}
-
-#workspaces {
-  margin: 0px 6px;
 }
 
 #workspaces button:hover {
@@ -37,6 +44,10 @@ window#waybar {
 
 #workspaces button.active {
   color: @accent;
+}
+
+#tray {
+  margin: 3px 0px 6px 0px;
 }
 
 #battery {
@@ -57,8 +68,4 @@ window#waybar {
   to {
     color: @urgent;
   }
-}
-
-#pulseaudio {
-  margin: 0px 0px 12px 0px;
 }

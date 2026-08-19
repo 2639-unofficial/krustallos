@@ -18,6 +18,7 @@
     "clock"
   ],
   "modules-right": [
+    "tray",
     "battery",
     "pulseaudio"
   ],
@@ -80,6 +81,9 @@
       "on-scroll-up": "shift_up",
       "on-scroll-down": "shift_down"
     }
+  },
+  "tray": {
+    "spacing": 6
   },
   "battery": {
     "justify": "center",
