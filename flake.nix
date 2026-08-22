@@ -35,6 +35,10 @@
   };
 
   outputs = inputs @ { self, nixpkgs, home-manager, ... }: {
+    # Entry point for `nix fmt`
+    # Cool trick from the `trivial` template from github:nixos/templates (PR#103)
+    formatter = builtins.mapAttrs (system: pkgs: pkgs.nixfmt-tree) nixpkgs.legacyPackages;
+
     # Local modifications to nixpkgs
     overlays = import ./overlays { inherit inputs; };
 
