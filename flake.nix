@@ -25,9 +25,9 @@
     niri.url = "github:sodiboo/niri-flake/main";
     niri.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Statusbar plugin for Zellij
-    zjstatus.url = "github:dj95/zjstatus/main";
-    zjstatus.inputs.nixpkgs.follows = "nixpkgs";
+    # Statusbar plugin for Zellij (is in nixpkgs now)
+    # zjstatus.url = "github:dj95/zjstatus/main";
+    # zjstatus.inputs.nixpkgs.follows = "nixpkgs";
 
     # Declarative flatpak manager; useful for GUI programs and basic bubblewrap sandbox
     # Related: [NixOS-integrated Flatpak package management](https://github.com/NixOS/nixpkgs/pull/347605)

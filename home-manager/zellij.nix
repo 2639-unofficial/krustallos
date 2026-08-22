@@ -1,6 +1,15 @@
-{ inputs, pkgs, krustallos, ... }:
+{
+  config,
+  # inputs,
+  # krustallos,
+  pkgs,
+  ...
+}:
 let
-  zjstatus_wasm = "${inputs.zjstatus.packages.${krustallos.system}.default}/bin/zjstatus.wasm";
+  inherit (config.lib.file) mkOutOfStoreSymlink;
+
+  zjstatus_wasm = pkgs.zellijPlugins.zjstatus;
+  # zjstatus_wasm = "${inputs.zjstatus.packages.${krustallos.system}.default}/bin/zjstatus.wasm";
 in
 {
   programs.zellij = {
@@ -12,7 +21,7 @@ in
   };
 
   xdg.configFile = {
-    "zellij/config.kdl".source = ./zellij/config.kdl;
+    "zellij/config.kdl".source = mkOutOfStoreSymlink ./zellij/config.kdl;
 
     # NOTE: Replace @zjstatus_wasm@ with the actual wasm location
     "zellij/layouts/default.kdl".source = pkgs.replaceVars ./zellij/layouts/default.kdl { inherit zjstatus_wasm; };
