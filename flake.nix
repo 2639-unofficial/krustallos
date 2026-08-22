@@ -21,9 +21,9 @@
     helix.url = "github:helix-editor/helix/master";
     helix.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Niri compositor
-    niri.url = "github:sodiboo/niri-flake/main";
-    niri.inputs.nixpkgs.follows = "nixpkgs";
+    # # Niri compositor
+    # niri.url = "github:sodiboo/niri-flake/main";
+    # niri.inputs.nixpkgs.follows = "nixpkgs";
 
     # Statusbar plugin for Zellij (is in nixpkgs now)
     # zjstatus.url = "github:dj95/zjstatus/main";

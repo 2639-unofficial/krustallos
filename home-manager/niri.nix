@@ -1,4 +1,4 @@
-{ config, inputs, pkgs, krustallos, ... }:
+{ config, pkgs, krustallos, ... }:
 let
   inherit (config.lib.file) mkOutOfStoreSymlink;
 
@@ -9,15 +9,6 @@ let
   };
 in
 {
-  imports = [
-    inputs.niri.homeModules.niri
-  ];
-
-  programs.niri = {
-    enable = true;
-    package = pkgs.niri;
-  };
-
   xdg.configFile."niri".source = mkOutOfStoreSymlink config-path.niri;
 
   home.packages = with pkgs; [
@@ -39,8 +30,6 @@ in
 
   programs.fuzzel.enable = true;
   xdg.configFile."fuzzel".source = mkOutOfStoreSymlink config-path.fuzzel;
-
-  programs.tofi.enable = true;
 
   services.mako = {
     enable = true;

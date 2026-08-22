@@ -1,13 +1,8 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 
 {
-  imports = [
-    inputs.niri.nixosModules.niri
-  ];
-
   programs.niri = {
     enable = true;
-    package = pkgs.niri;
   };
 
   # Prefer niri over other DE/WM's

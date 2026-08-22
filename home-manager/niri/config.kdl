@@ -486,8 +486,6 @@ binds {
 
     Mod+N { spawn-sh "swaync-client -t -sw"; }
 
-    Mod+Alt+Space { spawn "tofi-drun"; }
-
     // Mouse click with wl-kbptr
     Mod+X { spawn-sh "wlr-which-key cursor"; }
 
