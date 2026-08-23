@@ -32,6 +32,10 @@
     # Declarative flatpak manager; useful for GUI programs and basic bubblewrap sandbox
     # Related: [NixOS-integrated Flatpak package management](https://github.com/NixOS/nixpkgs/pull/347605)
     nix-flatpak.url = "github:gmodena/nix-flatpak/main";
+
+    # TUI for jujutsu; source only for overriding
+    jj-fzf.url = "github:tim-janik/jj-fzf/trunk";
+    jj-fzf.flake = false;
   };
 
   outputs = inputs @ { self, nixpkgs, home-manager, ... }: {

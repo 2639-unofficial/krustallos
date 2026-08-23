@@ -64,6 +64,23 @@
         "type": "github"
       }
     },
+    "jj-fzf": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1788221226,
+        "narHash": "sha256-L+qFFwGgi4YCuBT5nQ5OgL/1O7ynpnr7IoMP6mAYi+k=",
+        "owner": "tim-janik",
+        "repo": "jj-fzf",
+        "rev": "edb70810efc8b4ae27ba3e5c08b2ad7f9eca442a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tim-janik",
+        "ref": "trunk",
+        "repo": "jj-fzf",
+        "type": "github"
+      }
+    },
     "nix-flatpak": {
       "locked": {
         "lastModified": 1783368811,
@@ -101,6 +118,7 @@
         "disko": "disko",
         "helix": "helix",
         "home-manager": "home-manager",
+        "jj-fzf": "jj-fzf",
         "nix-flatpak": "nix-flatpak",
         "nixpkgs": "nixpkgs"
       }
