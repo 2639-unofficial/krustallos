@@ -1,7 +1,5 @@
 { pkgs, ... }:
-let
-  apple-color-emoji = pkgs.callPackage ../pkgs/apple-color-emoji.nix { };
-in
+
 {
   fonts.fontconfig.enable = true;
 

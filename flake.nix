@@ -35,6 +35,13 @@
   };
 
   outputs = inputs @ { self, nixpkgs, home-manager, ... }: {
+    # Local modifications to nixpkgs
+    overlays = import ./overlays { inherit inputs; };
+
+    # Custom packages, accessible through `nix build` and `nix shell`
+    # Consider `pkgs.extend self.overlays.modifications` or instantiating an overlayed nixpkgs if needed
+    packages = builtins.mapAttrs (system: pkgs: import ./pkgs pkgs) nixpkgs.legacyPackages;
+
     # NixOS configuration entry point
     nixosConfigurations = {
       mfm8s = nixpkgs.lib.nixosSystem {

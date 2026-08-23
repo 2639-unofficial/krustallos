@@ -1,6 +1,13 @@
-{ ... }:
+{ inputs, ... }:
 
 {
+  nixpkgs.config.allowUnfree = true;
+
+  nixpkgs.overlays = [
+    inputs.self.overlays.additions
+    inputs.self.overlays.modifications
+  ];
+
   nix = {
     # Enable automatic garbage collection
     # NOTE: Currently performed by nh

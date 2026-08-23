@@ -3,6 +3,11 @@
 {
   nixpkgs.config.allowUnfree = true;
 
+  nixpkgs.overlays = [
+    inputs.self.overlays.additions
+    inputs.self.overlays.modifications
+  ];
+
   # TODO: Consider replacing nix-index, comma, and the command-not-found util
   # with the wrapper https://github.com/nix-community/nix-index-database that
   # comes with a weekly updated nix-index db for nixos-unstable channel
