@@ -9,10 +9,11 @@ let
   };
 in
 {
+  # For wayland related systemd services like waybar and awww
+  wayland.systemd.target = "niri.service";
   xdg.configFile."niri".source = mkOutOfStoreSymlink config-path.niri;
 
   home.packages = with pkgs; [
-    awww        # Wallpaper
     brightnessctl
     libnotify   # Notify-send
     hyprpicker  # Color picker
@@ -22,7 +23,10 @@ in
     xwayland-satellite
   ];
 
+  services.awww.enable = true;
+
   programs.waybar.enable = true;
+  programs.waybar.systemd.enable = true;
   xdg.configFile."waybar/color.css".source = mkOutOfStoreSymlink "${config-path.waybar}/color.css";
   xdg.configFile."waybar/style.css".source = mkOutOfStoreSymlink "${config-path.waybar}/style.css";
   xdg.configFile."waybar/config.jsonc".source = mkOutOfStoreSymlink "${config-path.waybar}/config.jsonc";
