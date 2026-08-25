@@ -39,7 +39,11 @@
   # services.swaync.enable = true;
   # services.dunst.enable = true;
 
-  programs.swaylock.enable = true;
+  # services.swayidle.enable = true;
+  # programs.swaylock.enable = true;
+
+  services.hypridle.enable = true;
+  programs.hyprlock.enable = true;
 
   xdg.configFile = {
     "waybar/nix-snowflake-24x24.png".source = "${pkgs.nixos-icons}/share/icons/hicolor/24x24/apps/nix-snowflake.png";
@@ -49,5 +53,7 @@
     "waybar/style.css"
     "waybar/config.jsonc"
     "fuzzel"
+    "hypr/hypridle.conf"
+    "hypr/hyprlock.conf"
   ];
 }
