@@ -17,6 +17,9 @@
       # Related: https://github.com/nushell/nushell/issues/16106
       $env.config.completions.algorithm = "fuzzy" # prefix, substring, fuzzy
 
+      # Create every dir along the path and cd to the path
+      def --env mkcd [path: string] { mkdir $path; cd $path }
+
       # Print the absolute path of a command by resolving symlinks
       # Useful for getting the /nix/store path of a command
       def rwhich [...apps] { which --all ...$apps | update path { path expand } }
