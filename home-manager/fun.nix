@@ -35,10 +35,10 @@ let
     tali
   ];
 
-  rougelikes = with pkgs; [
-    # brogue-ce       # Brogue: Community Edition (minimalist rougelike, Rouge successor)
+  roguelikes = with pkgs; [
+    # brogue-ce       # Brogue: Community Edition (minimalist roguelike, Rogue successor)
     shattered-pixel-dungeon
-    # tome4           # Tales of Maj'eyal (rougelike turnbase dungeon explore)
+    # tome4           # Tales of Maj'eyal (roguelike turnbase dungeon explore)
   ];
 
   miscellaneous = with pkgs; [
@@ -55,7 +55,7 @@ in
   home.packages = lib.lists.flatten [
     terminal
     gnome-games
-    rougelikes
+    roguelikes
     miscellaneous
   ];
 }
