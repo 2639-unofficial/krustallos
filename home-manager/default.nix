@@ -40,6 +40,7 @@
 
     niri = [
       ./niri.nix
+      ./plasma-polkit-agent.nix
       ./wl-kbptr.nix
       ./wlogout.nix
       ./wlr-which-key.nix
