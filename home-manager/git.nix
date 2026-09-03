@@ -40,24 +40,24 @@
     signing.format = null;
   };
 
-    # Alternatives: difftastic or diff-so-fancy
-    programs.delta = {
-      enable = true;
-      enableGitIntegration = true;
-      options = {
-        dark = true;
-        navigate = true;
-        syntax-theme = "OneHalfDark";
-        features = "side-by-side line-numbers decorations"; # hyperlinks
-        whitespace-error-style = "22 reverse";
-        decorations = {
-          commit-decoration-style = "bold yellow box ul";
-          file-style = "bold yellow ul";
-          file-decoration-style = "none";
-          hunk-header-decoration-style = "cyan box ul";
-        };
+  # Alternatives: difftastic or diff-so-fancy
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+    options = {
+      dark = true;
+      navigate = true;
+      syntax-theme = "OneHalfDark";
+      features = "side-by-side line-numbers decorations"; # hyperlinks
+      whitespace-error-style = "22 reverse";
+      decorations = {
+        commit-decoration-style = "bold yellow box ul";
+        file-style = "bold yellow ul";
+        file-decoration-style = "none";
+        hunk-header-decoration-style = "cyan box ul";
       };
     };
+  };
 
   home.shellAliases = {
     g = "git";
