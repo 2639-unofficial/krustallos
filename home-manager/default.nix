@@ -139,6 +139,11 @@
   programs.keepassxc.enable = true;
 
   gtk.gtk4.theme = null;
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
+  };
 
   # Automouting USB drives
   # REF: https://wiki.nixos.org/wiki/USB_storage_devices
