@@ -13,6 +13,43 @@ conflict-marker-style = "git" # Set to "snapshot" for conflicts that are more co
 # Prevent pushing work in progress or anything explicitly labeled "private"
 private-commits = "description('x:*' | 'wip:*' | 'private:*')"
 
+[jj-fzf]
+log_template = "builtin_log_oneline_short"
+
 [templates]
 # See $JJ_SRC/cli/scr/config/templates.toml for all built-in templates
 draft_commit_description = "builtin_draft_commit_description_with_diff"
+
+[template-aliases]
+# Idea from YaLTeR's config
+# Copy of the builtin_log_oneline template but without the date
+builtin_log_oneline_short = 'builtin_log_oneline_short(self)'
+'builtin_log_oneline_short(commit)' = '''
+if(commit.root(),
+  format_root_commit(commit),
+  label(
+    separate(" ",
+      if(commit.current_working_copy(), "working_copy"),
+      if(commit.immutable(), "immutable", "mutable"),
+      if(commit.conflict(), "conflicted"),
+    ),
+    separate(" ",
+      format_short_change_id_with_change_offset(commit),
+      format_short_signature_oneline(commit.author()),
+      commit.bookmarks(),
+      commit.tags(),
+      commit.working_copies(),
+      format_short_commit_id(commit.commit_id()),
+      format_commit_labels(commit),
+      if(config("ui.show-cryptographic-signatures").as_boolean(),
+        format_short_cryptographic_signature(commit.signature())
+      ),
+      if(commit.empty(), empty_commit_marker),
+      if(commit.description(),
+        commit.description().first_line(),
+        label(if(commit.empty(), "empty"), description_placeholder),
+      ),
+    ) ++ "\n",
+  )
+)
+'''
