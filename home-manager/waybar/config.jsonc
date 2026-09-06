@@ -19,6 +19,7 @@
   ],
   "modules-right": [
     "tray",
+    "idle_inhibitor",
     "battery",
     "pulseaudio"
   ],
@@ -84,6 +85,14 @@
   },
   "tray": {
     "spacing": 6
+  },
+  "idle_inhibitor": {
+    "justify": "center",
+    "format": "<span size='80%'>{icon}</span>",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
   },
   "battery": {
     "justify": "center",

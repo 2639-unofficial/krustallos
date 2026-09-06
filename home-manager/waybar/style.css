@@ -50,6 +50,15 @@ window#waybar {
   margin: 3px 0px 6px 0px;
 }
 
+#idle_inhibitor {
+  color: @bar-fg;
+  margin: 3px 0px 6px 0px;
+}
+
+#idle_inhibitor.activated {
+  color: @accent;
+}
+
 #battery {
   color: @bar-fg;
 }
