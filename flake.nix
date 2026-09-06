@@ -3,11 +3,11 @@
 
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Lockable HTTP Tarball from the nix infra (hydra)
     # See the discussions in https://discourse.nixos.org/t/inputs-nixpkgs-from-flakehub/69095/
-    # nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
+    nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.zst";
 
     # Home manager
     home-manager.url = "github:nix-community/home-manager/master";
