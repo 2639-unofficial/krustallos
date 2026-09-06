@@ -10,6 +10,7 @@
     hyprpicker  # Color picker
     # satty       # Screenshot annotation, might want to checkout github:AlexanderVanhee/Gradia
     wayscriber  # Real-time screen annotation tool
+    wlogout-qs  # Personal wlogout replica
     wlrctl      # Wayland cli util
     xwayland-satellite
   ];
