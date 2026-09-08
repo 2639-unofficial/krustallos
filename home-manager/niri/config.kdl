@@ -487,14 +487,10 @@ binds {
 
     Mod+N { spawn-sh "swaync-client -t -sw"; }
 
-    Mod+X hotkey-overlay-title="Mouse click with wl-kbptr" { spawn-sh "wlr-which-key cursor"; }
+    Mod+X hotkey-overlay-title="Control menu for mouse click, logout, and more" { spawn-sh "wlr-which-key control-menu"; }
 
     Mod+Z       hotkey-overlay-title="Reload waybar"            { spawn-sh "pkill -SIGUSR2 waybar"; }
     Mod+Shift+Z hotkey-overlay-title="Toggle waybar visibility" { spawn-sh "pkill -SIGUSR1 waybar"; }
-
-    // Super+Alt+Z { spawn-sh "wlogout --buttons-per-row 6"; }
-    // Super+Alt+Z { spawn-sh "wleave --buttons-per-row 6"; }
-    Super+Alt+Z { spawn "wlogout-qs"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.

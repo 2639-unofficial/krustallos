@@ -6,6 +6,7 @@ separator: " ➜ "
 border_width: 2
 corner_r: 7
 padding: 16
+rows_per_column: 4
 
 menu:
   - key: "c"
@@ -20,3 +21,14 @@ menu:
   - key: "b"
     desc: "[Float] Click middle"
     cmd: wl-kbptr -o modes=floating,click -o mode_click.button=middle
+  - key: "z"
+    desc: "[Waybar] Reload"
+    cmd: pkill -SIGUSR2 waybar
+  - key: "Z"
+    desc: "[Waybar] Toggle visibility"
+    cmd: pkill -SIGUSR1 waybar
+  - key: "u"
+    desc: "Logout menu"
+    # cmd: wlogout --buttons-per-row 6
+    # cmd: wleave --buttons-per-row 6
+    cmd: wlogout-qs
