@@ -487,13 +487,10 @@ binds {
 
     Mod+N { spawn-sh "swaync-client -t -sw"; }
 
-    // Mouse click with wl-kbptr
-    Mod+X { spawn-sh "wlr-which-key cursor"; }
+    Mod+X hotkey-overlay-title="Mouse click with wl-kbptr" { spawn-sh "wlr-which-key cursor"; }
 
-    // Reload waybar
-    Mod+Z { spawn-sh "pkill -SIGUSR2 waybar"; }
-    // Toggle the visibility of waybar
-    Mod+Shift+Z { spawn-sh "pkill -SIGUSR1 waybar"; }
+    Mod+Z       hotkey-overlay-title="Reload waybar"            { spawn-sh "pkill -SIGUSR2 waybar"; }
+    Mod+Shift+Z hotkey-overlay-title="Toggle waybar visibility" { spawn-sh "pkill -SIGUSR1 waybar"; }
 
     // Super+Alt+Z { spawn-sh "wlogout --buttons-per-row 6"; }
     // Super+Alt+Z { spawn-sh "wleave --buttons-per-row 6"; }
@@ -524,6 +521,7 @@ binds {
     // Example media keys mapping using playerctl.
     // This will work with any MPRIS-enabled media player.
     XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    XF86AudioPause       allow-when-locked=true { spawn-sh "playerctl play-pause"; }
     XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }
     XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
     XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
@@ -693,11 +691,15 @@ binds {
     // Expel the bottom window from the focused column to the right.
     Mod+Period { expel-window-from-column; }
 
+    // Cycle through widths set in preset-column-widths.
     Mod+R { switch-preset-column-width; }
     // Cycling through the presets in reverse order is also possible.
-    // Mod+R { switch-preset-column-width-back; }
+    // Mod+Shift+R { switch-preset-column-width-back; }
+
     Mod+Shift+R { switch-preset-window-height; }
+    // Mod+Ctrl+Shift+R { switch-preset-window-height; }
     Mod+Ctrl+R { reset-window-height; }
+
     Mod+F { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
     Mod+Ctrl+Shift+F { toggle-windowed-fullscreen; }
